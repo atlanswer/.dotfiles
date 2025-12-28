@@ -1,0 +1,230 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+$line_break \
+$sudo\
+$os\
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_status\
+$git_metrics\
+$git_state\
+$c\
+$cmake\
+$golang\
+$zig\
+$rust\
+$bun\
+$nodejs\
+$java\
+$kotlin\
+$gradle\
+$lua\
+$python\
+$typst\
+$docker_context\
+$package\
+$fill \
+$battery\
+$memory_usage\
+$jobs\
+$status\
+$cmd_duration\
+$shell\
+$container\
+$time\
+$line_break\
+$character"""
+
+palette = "flexoki"
+
+[palettes.flexoki]
+bg = "#100F0F"
+bg-2 = "#1C1B1A"
+ui = "#282726"
+ui-2 = "#343331"
+ui-3 = "#403E3C"
+tx-3 = "#575653"
+tx-2 = "#878580"
+tx = "#CECDC3"
+re = "#D14D41"
+or = "#DA702C"
+ye = "#D0A215"
+gr = "#879A39"
+cy = "#3AA99F"
+bl = "#4385BE"
+pu = "#8B7EC8"
+ma = "#CE5D97"
+
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+unknown_symbol = " "
+empty_symbol = " "
+
+[[battery.display]]
+threshold = 10
+
+[[battery.display]]
+threshold = 30
+style = "ye"
+
+[[battery.display]]
+threshold = 50
+style = "tx-2"
+
+[os]
+disabled = false
+format = "[$symbol ]($style)"
+style = "tx"
+
+[os.symbols]
+Windows = " "
+Ubuntu = "󰕈 "
+Macos = " "
+Linux = " "
+Fedora = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Debian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+NixOS = " "
+
+[username]
+format = "[$user ]($style)"
+
+[hostname]
+ssh_symbol = "@"
+format = "[[$ssh_symbol](cy)$hostname ]($style)"
+
+[directory]
+format = "[($read_only)]($read_only_style)[$path ]($style)"
+style = "cy"
+truncation_symbol = "…/"
+read_only = "󰉐 "
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = "󰉍 "
+"Music" = "󱍙 "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+format = "[$symbol $branch(:$remote_branch)]($style)"
+style = "pu"
+
+[git_commit]
+format = '[\($hash$tag\) ]($style)'
+
+[git_metrics]
+disabled = false
+
+[git_status]
+format = "[($all_status$ahead_behind) ]($style)"
+style = "ye"
+
+[git_state]
+
+[c]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[cpp]
+disabled = false
+symbol = ""
+format = "[$symbol( $version-$name) ]($style)"
+style = "bl"
+
+[cmake]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[bun]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "#fbf0df"
+
+[nodejs]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "gr"
+
+[rust]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[golang]
+symbol = "󰟓"
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[java]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[kotlin]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "pu"
+
+[lua]
+symbol = ""
+format = "[$symbol( $version) ]($style)"
+style = "bl"
+
+[python]
+symbol = ""
+format = "[$symbol( $virtualenv)( $version) ]($style)"
+style = "ye"
+
+[docker_context]
+symbol = ""
+format = "[$symbol( $context) ]($style)"
+style = "tx-2"
+
+[package]
+symbol = ""
+format = "[$symbol $version ]($style)"
+style = "tx-2"
+
+[fill]
+symbol = "─"
+style = "tx-3"
+
+[status]
+disabled = false
+symbol = " "
+sigint_symbol = "󰜺 "
+map_symbol = true
+
+[cmd_duration]
+format = "[$duration ]($style)"
+
+[time]
+disabled = false
+time_format = "%R"
+format = "[$time ]($style)"
+style = "tx-2"
+
+[character]
+success_symbol = "[](bold gr)"
+error_symbol = "[](bold re)"
+vimcmd_symbol = "[](bold gr)"
+vimcmd_replace_one_symbol = "[](bold pu)"
+vimcmd_replace_symbol = "[](bold pu)"
+vimcmd_visual_symbol = "[](bold ye)"
+format = " $symbol "
+

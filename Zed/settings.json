@@ -1,0 +1,109 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "vim_mode": true,
+  "base_keymap": "VSCode",
+  "relative_line_numbers": "enabled",
+  "soft_wrap": "bounded",
+  "colorize_brackets": true,
+  "indent_guides": {
+    "coloring": "indent_aware",
+  },
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "gutter": {
+    "line_numbers": true,
+  },
+  "minimap": {
+    "show": "never",
+  },
+  "file_types": {
+    "python": ["*.vpy"],
+  },
+  "linked_edits": true,
+  "show_edit_predictions": true,
+  "buffer_font_fallbacks": [".ZedMono", "Cascadia Code"],
+  "buffer_font_family": "FiraCode Nerd Font",
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "agent_buffer_font_size": 14.0,
+  "use_system_prompts": false,
+  "use_system_path_prompts": false,
+  "prettier": {
+    "allowed": true,
+  },
+  "toolbar": {
+    "code_actions": true,
+  },
+  "features": {
+    "edit_prediction_provider": "zed",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "ty",
+        "ruff",
+        "!basedpyright",
+        "!pyrefly",
+        "!pyright",
+        "!pylsp",
+      ],
+    },
+  },
+  "agent": {
+    "default_profile": "minimal",
+    "default_model": {
+      "provider": "openrouter",
+      "model": "xiaomi/mimo-v2-flash:free",
+    },
+  },
+  "agent_servers": {
+    "OpenCode": {
+      "type": "custom",
+      "command": "bunx",
+      "args": ["--bun", "opencode", "acp"],
+    },
+  },
+  "language_models": {
+    "open_router": {
+      "available_models": [
+        {
+          "name": "xiaomi/mimo-v2-flash:free",
+          "display_name": "Xiaomi: MiMo-V2-Flash (free)",
+          "max_tokens": 256000,
+          // "max_output_tokens": 8192,
+          // "max_completion_tokens": 8192,
+          "supports_tools": true,
+          "supports_images": true,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+      ],
+    },
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Colored Zed Icons Theme Dark",
+    "dark": "Colored Zed Icons Theme Light",
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Flexoki Light",
+    "dark": "Flexoki Dark",
+  },
+  "proxy": "http://localhost:1080",
+}
