@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
   "vim_mode": true,
   "base_keymap": "VSCode",
   "relative_line_numbers": "enabled",
@@ -25,9 +30,6 @@
   },
   "gutter": {
     "line_numbers": true,
-  },
-  "minimap": {
-    "show": "never",
   },
   "file_types": {
     "python": ["*.vpy"],
@@ -61,19 +63,20 @@
         "!pylsp",
       ],
     },
+    "LaTeX": {
+      "formatter": {
+        "external": {
+          "command": "tex-fmt",
+          "arguments": ["--stdin"],
+        },
+      },
+    },
   },
   "agent": {
     "default_profile": "minimal",
     "default_model": {
       "provider": "openrouter",
       "model": "xiaomi/mimo-v2-flash:free",
-    },
-  },
-  "agent_servers": {
-    "OpenCode": {
-      "type": "custom",
-      "command": "bunx",
-      "args": ["--bun", "opencode", "acp"],
     },
   },
   "language_models": {
