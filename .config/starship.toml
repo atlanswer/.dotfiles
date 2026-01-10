@@ -2,11 +2,13 @@
 
 format = """
 $line_break \
-$sudo\
 $os\
+$sudo\
 $username\
 $hostname\
+$localip\
 $shlvl\
+$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
@@ -52,13 +54,75 @@ tx-3 = "#575653"
 tx-2 = "#878580"
 tx = "#CECDC3"
 re = "#D14D41"
+re-2 = "#AF3029"
 or = "#DA702C"
+or-2 = "#BC5215"
 ye = "#D0A215"
+ye-2 = "#AD8301"
 gr = "#879A39"
+gr-2 = "#66800B"
 cy = "#3AA99F"
+cy-2 = "#24837B"
 bl = "#4385BE"
+bl-2 = "#205EA6"
 pu = "#8B7EC8"
+pu-2 = "#5E409D"
 ma = "#CE5D97"
+ma-2 = "#A02F6F"
+
+[os]
+disabled = false
+format = "[$symbol]($style)"
+style = "bl-2"
+
+[os.symbols]
+Windows = " "
+Ubuntu = "󰕈 "
+Macos = " "
+Linux = " "
+Fedora = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Debian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+NixOS = " "
+
+[sudo]
+disabled = false
+format = "[sudo $symbol ]($style)"
+symbol = " "
+style = "bl-2"
+
+[username]
+format = "[$user]($style)"
+
+[hostname]
+format = "[[$ssh_symbol](cyan)$hostname ]($style)"
+ssh_symbol = "@"
+trim_at = "."
+
+[shlvl]
+disabled = false
+format = "[$symbol$shlvl ]($style)"
+symbol = ""
+
+[directory]
+format = "[$read_only]($read_only_style)[$path ]($style)"
+style = "cyan"
+truncation_length = 4
+truncation_symbol = " "
+read_only = "󰉐 "
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$read_only]($read_only_style)[󰊢 ](#F1502F)[$repo_root]($repo_root_style)[$path ]($style)"
+repo_root_style = "or"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = "󰉍 "
+"Music" = "󱍙 "
+"Pictures" = " "
 
 [battery]
 full_symbol = " "
@@ -77,45 +141,6 @@ style = "ye"
 [[battery.display]]
 threshold = 50
 style = "tx-2"
-
-[os]
-disabled = false
-format = "[$symbol ]($style)"
-style = "tx"
-
-[os.symbols]
-Windows = " "
-Ubuntu = "󰕈 "
-Macos = " "
-Linux = " "
-Fedora = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Debian = " "
-Redhat = "󱄛 "
-RedHatEnterprise = "󱄛 "
-NixOS = " "
-
-[username]
-format = "[$user ]($style)"
-
-[hostname]
-ssh_symbol = "@"
-format = "[[$ssh_symbol](cy)$hostname ]($style)"
-
-[directory]
-format = "[($read_only)]($read_only_style)[$path ]($style)"
-style = "cy"
-truncation_symbol = "…/"
-read_only = "󰉐 "
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = "󰉍 "
-"Music" = "󱍙 "
-"Pictures" = " "
 
 [git_branch]
 symbol = ""
@@ -151,14 +176,19 @@ format = "[$symbol( $version) ]($style)"
 style = "bl"
 
 [bun]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
+symbol = " "
+format = "[$symbol($version) ]($style)"
 style = "#fbf0df"
 
 [nodejs]
 symbol = ""
 format = "[$symbol( $version) ]($style)"
 style = "gr"
+
+[zig]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "#f7a41d"
 
 [rust]
 symbol = ""
@@ -176,19 +206,19 @@ format = "[$symbol( $version) ]($style)"
 style = "bl"
 
 [kotlin]
-symbol = ""
+symbol = " "
 format = "[$symbol( $version) ]($style)"
 style = "pu"
 
 [lua]
-symbol = ""
+symbol = " "
 format = "[$symbol( $version) ]($style)"
 style = "bl"
 
 [python]
-symbol = ""
-format = "[$symbol( $virtualenv)( $version) ]($style)"
-style = "ye"
+symbol = " "
+format = "[[$symbol](#4B8BBE)($virtualenv )($version) ]($style)"
+style = "#FFD43B"
 
 [docker_context]
 symbol = ""
