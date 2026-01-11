@@ -1,12 +1,12 @@
-zmodule completion
 zmodule environment
-zmodule input
 zmodule run-help
 zmodule utility
 zmodule exa
 zmodule fzf
-zmodule zsh-users/zsh-autosuggestions
+zmodule input
 zmodule zsh-users/zsh-completions
+zmodule completion
+zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 
