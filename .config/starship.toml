@@ -10,34 +10,36 @@ $localip\
 $shlvl\
 $kubernetes\
 $directory\
-$git_branch\
 $git_commit\
+$git_state\
+$git_branch\
 $git_status\
 $git_metrics\
-$git_state\
+$package\
+$docker_context\
 $c\
+$cpp\
+$meson\
 $cmake\
-$golang\
 $zig\
 $rust\
+$golang\
 $bun\
 $nodejs\
-$java\
-$kotlin\
-$gradle\
 $lua\
+$kotlin\
+$java\
+$gradle\
 $python\
+$haskell\
 $typst\
-$docker_context\
-$package\
 $fill \
-$battery\
-$memory_usage\
-$jobs\
 $status\
 $cmd_duration\
+$jobs\
 $shell\
 $container\
+$battery\
 $time\
 $line_break\
 $character"""
@@ -116,7 +118,7 @@ truncation_length = 4
 truncation_symbol = " "
 read_only = "󰉐 "
 repo_root_format = "[$before_root_path]($before_repo_root_style)[$read_only]($read_only_style)[󰊢 ](#F1502F)[$repo_root]($repo_root_style)[$path ]($style)"
-repo_root_style = "or"
+repo_root_style = "or-2"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -124,66 +126,76 @@ repo_root_style = "or"
 "Music" = "󱍙 "
 "Pictures" = " "
 
-[battery]
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
-unknown_symbol = " "
-empty_symbol = " "
+[git_commit]
+format = '[ $tag(  $hash) ]($style)'
+style = "green"
+tag_disabled = false
+tag_symbol = "󰓹 "
 
-[[battery.display]]
-threshold = 10
-
-[[battery.display]]
-threshold = 30
-style = "ye"
-
-[[battery.display]]
-threshold = 50
-style = "tx-2"
+[git_state]
+format = '\([$state( $progress_current/$progress_total) ]($style)\)'
+style = "bold yellow"
+rebase = " REBASING"
+merge = " MERGING"
+revert = "󰦛 REVERTING"
+cherry_pick = " CHERRY-PICKING"
+bisect = " BISECTING"
 
 [git_branch]
-symbol = ""
-format = "[$symbol $branch(:$remote_branch)]($style)"
-style = "pu"
+format = "[$symbol$branch(:$remote_branch)]($style)"
+symbol = " "
+style = "ma-2"
+truncation_length = 24
+truncation_symbol = " "
 
-[git_commit]
-format = '[\($hash$tag\) ]($style)'
+[git_status]
+format = "[($all_status$ahead_behind) ]($style)"
+style = "yellow"
+ahead = '  ${count}'
+behind = "  ${count}"
+diverged = '  ${count}  ${count}'
+conflicted = "[=](bold red)"
+untracked = "?"
+stashed = '\$'
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "[](bold red)"
+typechanged = ""
 
 [git_metrics]
 disabled = false
 
-[git_status]
-format = "[($all_status$ahead_behind) ]($style)"
-style = "ye"
+[package]
+format = "[$symbol$version ]($style)"
+symbol = "󰏓 "
+style = "tx-2"
 
-[git_state]
+[docker_context]
+format = "[$symbol($context) ]($style)"
+symbol = " "
+style = "tx-2"
 
 [c]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
-style = "bl"
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "149"
 
 [cpp]
 disabled = false
-symbol = ""
-format = "[$symbol( $version-$name) ]($style)"
-style = "bl"
+format = "[$symbol($version-$name) ]($style)"
+symbol = " "
+style = "149"
+
+[meson]
+format = "[$symbol$project ]($style)"
+symbol = "󰋅 "
+style = "blue"
 
 [cmake]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
-style = "bl"
-
-[bun]
-symbol = " "
 format = "[$symbol($version) ]($style)"
-style = "#fbf0df"
-
-[nodejs]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
-style = "gr"
+symbol = " "
+style = "blue"
 
 [zig]
 format = "[$symbol($version) ]($style)"
@@ -191,70 +203,115 @@ symbol = " "
 style = "#f7a41d"
 
 [rust]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
-style = "bl"
+symbol = " "
+format = "[$symbol($version) ]($style)"
+style = "or"
 
 [golang]
-symbol = "󰟓"
-format = "[$symbol( $version) ]($style)"
-style = "bl"
+symbol = " "
+format = "[$symbol($version) ]($style)"
+style = "blue"
 
-[java]
-symbol = ""
-format = "[$symbol( $version) ]($style)"
-style = "bl"
+[bun]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "#fbf0df"
 
-[kotlin]
-symbol = " "
-format = "[$symbol( $version) ]($style)"
-style = "pu"
+[nodejs]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "green"
 
 [lua]
-symbol = " "
-format = "[$symbol( $version) ]($style)"
-style = "bl"
+format = "[$symbol($version) ]($style)"
+symbol = "󰢱 "
+style = "blue"
+
+[kotlin]
+format = "[$symbol($version) ]($style)"
+symbol = "󱈙 "
+style = "purple"
+
+[java]
+format = "[$symbol($version) ]($style)"
+symbol = " "
+style = "dimmed red"
+
+[gradle]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "cyan"
 
 [python]
-symbol = " "
 format = "[[$symbol](#4B8BBE)($virtualenv )($version) ]($style)"
+symbol = " "
 style = "#FFD43B"
 
-[docker_context]
-symbol = ""
-format = "[$symbol( $context) ]($style)"
-style = "tx-2"
-
-[package]
-symbol = ""
-format = "[$symbol $version ]($style)"
-style = "tx-2"
+[haskell]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "purple"
 
 [fill]
 symbol = "─"
 style = "tx-3"
 
 [status]
+format = "[$symbol$status ]($style)"
 disabled = false
 symbol = " "
+not_executable_symbol = " "
+not_found_symbol = " "
 sigint_symbol = "󰜺 "
+signal_symbol = " "
+style = "bold red"
 map_symbol = true
+pipestatus = true
 
 [cmd_duration]
 format = "[$duration ]($style)"
 
+[jobs]
+format = "[$symbol$number ]($style)"
+symbol = " "
+style = "blue"
+
+[battery]
+format = "[$symbol$percentage ]($style)"
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+empty_symbol = " "
+unknown_symbol = "󱟨 "
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "yellow"
+
+[[battery.display]]
+threshold = 50
+style = "tx"
+
+[[battery.display]]
+threshold = 80
+style = "tx-2"
+
 [time]
+format = "[$time ]($style)"
 disabled = false
 time_format = "%R"
-format = "[$time ]($style)"
 style = "tx-2"
 
 [character]
-success_symbol = "[](bold gr)"
-error_symbol = "[](bold re)"
-vimcmd_symbol = "[](bold gr)"
-vimcmd_replace_one_symbol = "[](bold pu)"
-vimcmd_replace_symbol = "[](bold pu)"
-vimcmd_visual_symbol = "[](bold ye)"
 format = " $symbol "
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+vimcmd_symbol = "[](bold green)"
+vimcmd_replace_one_symbol = "[](bold purple)"
+vimcmd_replace_symbol = "[](bold purple)"
+vimcmd_visual_symbol = "[](bold yellow)"
 
