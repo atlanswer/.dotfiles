@@ -127,7 +127,7 @@ repo_root_style = "or-2"
 "Pictures" = " "
 
 [git_commit]
-format = '[ $tag(  $hash) ]($style)'
+format = '[($tag )( $hash )]($style)'
 style = "green"
 tag_disabled = false
 tag_symbol = "󰓹 "
