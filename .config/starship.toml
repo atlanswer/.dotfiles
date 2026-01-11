@@ -95,8 +95,8 @@ NixOS = " "
 
 [sudo]
 disabled = false
-format = "[sudo $symbol ]($style)"
-symbol = " "
+format = "[$symbol sudo ]($style)"
+symbol = ""
 style = "bl-2"
 
 [username]
