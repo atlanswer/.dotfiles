@@ -7,13 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "EM-Workstation",
+      "args": [],
+      "projects": [],
+    },
+  ],
   "edit_predictions": {
-    "provider": "zed"
+    "provider": "zed",
   },
   "diagnostics": {
     "inline": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "vim_mode": true,
   "base_keymap": "VSCode",
@@ -39,7 +46,7 @@
   },
   "linked_edits": true,
   "show_edit_predictions": true,
-  "buffer_font_fallbacks": [".ZedMono", "Cascadia Code"],
+  "buffer_font_fallbacks": [".ZedMono", ".SystemUIFont"],
   "buffer_font_family": "FiraCode Nerd Font",
   "ui_font_size": 16,
   "buffer_font_size": 14.0,
@@ -76,7 +83,7 @@
     "default_profile": "minimal",
     "default_model": {
       "provider": "openrouter",
-      "model": "xiaomi/mimo-v2-flash:free",
+      "model": "openrouter/pony-alpha",
     },
   },
   "language_models": {
