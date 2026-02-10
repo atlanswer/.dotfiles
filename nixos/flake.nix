@@ -22,8 +22,8 @@
     nixosConfigurations = {
       nixos-wsl = nixpkgs.lib.nixosSystem {
         modules = [
-	  ({pkgs, ...}: {
-            nixpkgs.hostPlatform = "aarch64-linux";
+	  ({ pkgs, ... }: {
+            nixpkgs.hostPlatform = "x86_64-linux";
             # Nix settings
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	    nix.optimise.automatic = true;
@@ -32,7 +32,6 @@
 	    programs.git.enable = true;
 	    programs.zsh = {
 	      enable = true;
-	      # enableGlobalCompInit = true;
 	      enableBashCompletion = true;
 	      vteIntegration = true;
 	    };

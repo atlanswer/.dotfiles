@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: {
+{ lib, config, pkgs, ...}: {
   home = {
     username = "atlanswer";
     homeDirectory = "/home/atlanswer";
@@ -7,16 +7,22 @@
 
     packages = with pkgs; [
       # Programming languages
+      clang
+      clang-tools
+      libclang.lib
       nodejs_latest
-      rustup
+      rustc
+      cargo
+      cargo-cache
+      cargo-update
       # Dev tools
       ripgrep
       fzf
       eza
-      zoxide
       bat
+      lua-language-server
+      stylua
       # tree-sitter
-      yazi
       fd
       tealdeer
       # Utilities
@@ -28,7 +34,12 @@
       file
       tree
       jq
+      stow
     ];
+
+    sessionVariables = {
+      LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+    };
   };
 
   programs.neovim = {
@@ -51,10 +62,31 @@
       append = true;
       expireDuplicatesFirst = true;
     };
-    initContent = lib.mkOrder 500 ''
-      ZIM_CONFIG_FILE=~/.config/zsh/zimrc
-      ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-    '';
+    envExtra = "setopt no_global_rcs";
+    initContent = import ./zshrc.nix { inherit lib; };
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    keyMode = "vi";
+    mouse = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    shellWrapperName = "y";
   };
 
   programs.git = {
