@@ -1,0 +1,86 @@
+* {
+  background-color: #181824;
+  /* background: rgba(24, 24, 36, 0.5); */
+  color: #cdd6f4;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "FiraCode Nerd Font Propo";
+  font-size: 13px;
+}
+
+.modules-left {
+  margin-left: 16px;
+}
+
+.modules-right {
+  margin-right: 16px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#workspace,
+#window,
+#tray,
+#bluetooth,
+#custom-network,
+#network,
+#pulseaudio,
+#disk,
+#custom-storage,
+#cpu,
+#memory,
+#battery,
+/* #custom-expand-icon, */
+#custom-screenrecording-indicator,
+#custom-power {
+  min-width: 12px;
+  margin: 0 4px;
+}
+
+/* #tray { */
+/*   margin-right: 16px; */
+/* } */
+
+/* #bluetooth { */
+/*   margin-right: 17px; */
+/* } */
+
+/* #network { */
+/*   margin-right: 13px; */
+/* } */
+
+#custom-expand-icon {
+  margin-right: 8px;
+}
+
+/* #clock { */
+/*   margin-left: 8.75px; */
+/* } */
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
