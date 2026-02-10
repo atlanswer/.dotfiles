@@ -8,7 +8,10 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +23,7 @@
       nixos-wsl = nixpkgs.lib.nixosSystem {
         modules = [
 	  ({pkgs, ...}: {
-            nixpkgs.hostPlatform = "x86_64-linux";
+            nixpkgs.hostPlatform = "aarch64-linux";
             # Nix settings
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	    nix.optimise.automatic = true;
@@ -30,13 +33,15 @@
 	    programs.zsh = {
 	      enable = true;
 	      # enableGlobalCompInit = true;
+	      enableBashCompletion = true;
+	      vteIntegration = true;
 	    };
 	    programs.neovim = {
 	      enable = true;
 	      defaultEditor = true;
 	    };
             # Global environment
-            # environment.systemPackages = with pkgs; [ git neovim ];
+            # environment.systemPackages = with pkgs; [ tree-sitter ];
             # environment.variables.EDITOR = "nvim";
 	    users.users.atlanswer.shell = pkgs.zsh;
             # This value determines the NixOS release from which the default
@@ -50,9 +55,12 @@
             time.timeZone = "Asia/Shanghai";
 	  })
           nixos-wsl.nixosModules.default {
-            wsl.enable = true;
-	    wsl.defaultUser = "atlanswer";
-	    wsl.ssh-agent.enable = true;
+	    wsl = {
+              enable = true;
+	      defaultUser = "atlanswer";
+	      ssh-agent.enable = true;
+	      useWindowsDriver = true;
+	    };
 	  }
 	  home-manager.nixosModules.home-manager {
 	    home-manager = {
