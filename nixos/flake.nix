@@ -23,7 +23,6 @@
       nixos-wsl = nixpkgs.lib.nixosSystem {
         modules = [
 	  ({ pkgs, ... }: {
-            nixpkgs.hostPlatform = "x86_64-linux";
             # Nix settings
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	    nix.optimise.automatic = true;
@@ -42,6 +41,7 @@
             # Global environment
             # environment.systemPackages = with pkgs; [ tree-sitter ];
             # environment.variables.EDITOR = "nvim";
+	    # Users
 	    users.users.atlanswer.shell = pkgs.zsh;
             # This value determines the NixOS release from which the default
             # settings for stateful data, like file locations and database versions
@@ -50,17 +50,11 @@
             # Before changing this value read the documentation for this option
             # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
             system.stateVersion = "26.05";
+	    # System settings
+	    security.sudo.wheelNeedsPassword = true;
 	    networking.hostName = "nixos-wsl";
             time.timeZone = "Asia/Shanghai";
 	  })
-          nixos-wsl.nixosModules.default {
-	    wsl = {
-              enable = true;
-	      defaultUser = "atlanswer";
-	      ssh-agent.enable = true;
-	      useWindowsDriver = true;
-	    };
-	  }
 	  home-manager.nixosModules.home-manager {
 	    home-manager = {
 	      useGlobalPkgs = true;
@@ -69,6 +63,15 @@
 	      backupFileExtension = "backup";
 	    };
 	  }
+          nixos-wsl.nixosModules.default {
+	    wsl = {
+              enable = true;
+	      defaultUser = "atlanswer";
+	      ssh-agent.enable = true;
+	      useWindowsDriver = true;
+	    };
+	  }
+          ./hardware-configuration.nix
         ];
       };
     };
