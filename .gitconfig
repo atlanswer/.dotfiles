@@ -2,13 +2,13 @@
 [user]
     name = Atlanswer
     email = atlanswer@gmail.com
-    signingkey = ~/.ssh/id_ed25519.pub
+[init]
+    defaultBranch = main
 [core]
     autocrlf = input
     fscache = true
     symlinks = true
     fsmonitor = true
-    editor = nvim
 [color]
     ui = true
 [pull]
@@ -24,6 +24,8 @@
     enabled = true
 [gpg]
     format = ssh
+[gpg "ssh"]
+    defaultKeyCommand = ssh-add -L
 [commit]
     gpgsign = true
 [merge]
