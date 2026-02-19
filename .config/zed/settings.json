@@ -7,13 +7,6 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "ssh_connections": [
-    {
-      "host": "EM-Workstation",
-      "args": [],
-      "projects": [],
-    },
-  ],
   "edit_predictions": {
     "provider": "zed",
   },
