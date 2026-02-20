@@ -3,7 +3,7 @@
     bindkey -v
   '';
   zimInit = lib.mkOrder 550 ''
-    ZIM_CONFIG_FILE=~/.config/zsh/zimrc
+    ZIM_CONFIG_FILE=~/.config/zimrc
     ZIM_HOME=''${ZDOTDIR:-''${HOME}}/.zim
     # Download zimfw plugin manager if missing.
     if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
@@ -25,7 +25,7 @@
     # uv
     export PATH="$PATH:$HOME/.local/bin"
     # bun
-    export PATH="$PATH:$HOME/.cache/.bun/bin"
+    export PATH="$PATH:$HOME/.bun/bin"
 
     function setproxy() {
       export all_proxy="socks5://localhost:1080"

@@ -8,12 +8,12 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -22,27 +22,29 @@
     nixosConfigurations = {
       nixos-wsl = nixpkgs.lib.nixosSystem {
         modules = [
-	  ({ pkgs, ... }: {
+          ({ pkgs, ... }: {
             # Nix settings
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	    nix.optimise.automatic = true;
-	    nix.gc.automatic = true;
+            nix.channel.enable = false;
+            nix.optimise.automatic = true;
+            nix.gc.automatic = true;
             # Global packages
-	    programs.git.enable = true;
-	    programs.zsh = {
-	      enable = true;
-	      enableBashCompletion = true;
-	      vteIntegration = true;
-	    };
-	    programs.neovim = {
-	      enable = true;
-	      defaultEditor = true;
-	    };
+            programs.nix-ld.enable = true;
+            programs.git.enable = true;
+            programs.zsh = {
+              enable = true;
+              enableBashCompletion = true;
+              vteIntegration = true;
+            };
+            programs.neovim = {
+              enable = true;
+              defaultEditor = true;
+            };
             # Global environment
             # environment.systemPackages = with pkgs; [ tree-sitter ];
             # environment.variables.EDITOR = "nvim";
-	    # Users
-	    users.users.atlanswer.shell = pkgs.zsh;
+            # Users
+            users.users.atlanswer.shell = pkgs.zsh;
             # This value determines the NixOS release from which the default
             # settings for stateful data, like file locations and database versions
             # on your system were taken. It's perfectly fine and recommended to leave
@@ -50,27 +52,32 @@
             # Before changing this value read the documentation for this option
             # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
             system.stateVersion = "26.05";
-	    # System settings
-	    security.sudo.wheelNeedsPassword = true;
-	    networking.hostName = "nixos-wsl";
+            # System settings
+            security.sudo.wheelNeedsPassword = true;
+            networking.hostName = "nixos-wsl";
             time.timeZone = "Asia/Shanghai";
-	  })
-	  home-manager.nixosModules.home-manager {
-	    home-manager = {
-	      useGlobalPkgs = true;
-	      useUserPackages = true;
-	      users.atlanswer = import ./home.nix;
-	      backupFileExtension = "backup";
-	    };
-	  }
+          })
+          home-manager.nixosModules.home-manager {
+            # nixpkgs.config.allowUnfree = true;
+            # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            #   "android-sdk-cmdline-tools"
+            #   "android-sdk-platform-tools"
+            # ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.atlanswer = import ./home.nix;
+              backupFileExtension = "backup";
+            };
+          }
           nixos-wsl.nixosModules.default {
-	    wsl = {
+            wsl = {
               enable = true;
-	      defaultUser = "atlanswer";
-	      ssh-agent.enable = true;
-	      useWindowsDriver = true;
-	    };
-	  }
+              defaultUser = "atlanswer";
+              ssh-agent.enable = true;
+              useWindowsDriver = true;
+            };
+          }
           ./hardware-configuration.nix
         ];
       };
