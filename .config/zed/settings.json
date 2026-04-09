@@ -52,6 +52,12 @@
     "code_actions": true,
   },
   "languages": {
+    "CSS": {
+      "language_servers": [
+        "tailwindcss-intellisense-css",
+        "!vscode-css-language-server",
+      ],
+    },
     "Python": {
       "language_servers": [
         "ty",
