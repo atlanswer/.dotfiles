@@ -22,7 +22,10 @@ in
         platform-tools
         platforms-android-36
         sources-android-36
-        build-tools-37-0-0
+        build-tools-35-0-0
+        build-tools-36-0-0
+        ndk-27-1-12297006
+        cmake-3-22-1
       ];
   };
 
@@ -33,9 +36,11 @@ in
 
   home.packages = with pkgs; [
     # Android
-    zulu
+    zulu17
     gradle
     watchman
+    # iOS
+    cocoapods
 
     nodejs_latest
     rustc
@@ -43,11 +48,12 @@ in
     cargo-cache
     cargo-update
 
-    ripgrep
+    # ripgrep # required by codex in homebrew
     fzf
     eza
     bat
     fd
+    dust
     scc
     tree-sitter
     lua-language-server
@@ -74,10 +80,11 @@ in
     mihomo
   ];
 
-  home.sessionVariables = {
+  home.sessionVariables = rec {
     # Android
-    JAVA_HOME = "${pkgs.zulu}";
-    ANDROID_HOME = androidSdkPath;
+    # JAVA_HOME = "${pkgs.zulu17}";
+    # ANDROID_HOME = androidSdkPath;
+    # ANDROID_NDK_ROOT = "${ANDROID_HOME}/ndk-bundle";
   };
 
   home.sessionPath = [
@@ -185,7 +192,6 @@ in
       fetch.ff = "only";
       fetch.prune = true;
       push.autoSetupRemote = true;
-      # gpg.ssh.defaultKeyCommand = "ssh-add -L";
     };
     signing = {
       format = "ssh";

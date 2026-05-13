@@ -67,7 +67,10 @@
           homebrew = {
             enable = true;
             enableZshIntegration = true;
-            brews = [ ];
+            brews = [
+              "mas"
+              "sevenzip"
+            ];
             greedyCasks = true;
             casks = [
               "zed"
@@ -82,6 +85,7 @@
             ];
             masApps = {
               "Apple Developer" = 640199958;
+              "Xcode" = 497799835;
             };
             global = {
               autoUpdate = true;
