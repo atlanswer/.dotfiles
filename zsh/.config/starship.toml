@@ -75,12 +75,11 @@ ma-2 = "#A02F6F"
 [os]
 disabled = false
 format = "[$symbol]($style)"
-style = "bl-2"
 
 [os.symbols]
-Windows = " "
+Windows = "[ ](bl-2)"
 Ubuntu = "󰕈 "
-Macos = " "
+Macos = "[ ](white)"
 Linux = " "
 Fedora = " "
 Alpine = " "
@@ -283,7 +282,7 @@ full_symbol = " "
 charging_symbol = " "
 discharging_symbol = " "
 empty_symbol = " "
-unknown_symbol = "󱟨 "
+unknown_symbol = "󱟢 "
 
 [[battery.display]]
 threshold = 20
@@ -315,4 +314,3 @@ vimcmd_symbol = "[](bold green)"
 vimcmd_replace_one_symbol = "[](bold purple)"
 vimcmd_replace_symbol = "[](bold purple)"
 vimcmd_visual_symbol = "[](bold yellow)"
-

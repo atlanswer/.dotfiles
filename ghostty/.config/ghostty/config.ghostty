@@ -1,2 +1,2 @@
-font-family = "FiraCode Nerd Font Mono"
-
+font-family = "FiraCode Nerd Font"
+shell-integration-features = ssh-env,ssh-terminfo
