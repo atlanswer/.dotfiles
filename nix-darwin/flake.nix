@@ -75,6 +75,7 @@
             casks = [
               "zed"
               "tailscale-app"
+              "zen"
               "helium-browser"
               "affinity"
               "android-studio"

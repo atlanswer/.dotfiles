@@ -80,11 +80,11 @@ in
     mihomo
   ];
 
-  home.sessionVariables = rec {
+  home.sessionVariables = {
     # Android
-    # JAVA_HOME = "${pkgs.zulu17}";
+    JAVA_HOME = "${pkgs.zulu17}";
     # ANDROID_HOME = androidSdkPath;
-    # ANDROID_NDK_ROOT = "${ANDROID_HOME}/ndk-bundle";
+    # ANDROID_NDK_ROOT = "${ANDROID_HOME}/ndk";
   };
 
   home.sessionPath = [

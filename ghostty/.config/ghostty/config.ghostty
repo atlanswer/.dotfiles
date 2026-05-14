@@ -1,2 +1,6 @@
 font-family = "FiraCode Nerd Font"
 shell-integration-features = ssh-env,ssh-terminfo
+
+macos-option-as-alt = true
+macos-titlebar-style = "tabs"
+
