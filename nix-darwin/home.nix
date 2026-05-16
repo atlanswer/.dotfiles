@@ -102,7 +102,11 @@ in
   programs.bun = {
     enable = true;
     settings = {
-      install.linker = "isolated";
+      install = {
+        linker = "isolated";
+        globalStore = true;
+        minimumReleaseAge = 259200;
+      };
     };
   };
 
