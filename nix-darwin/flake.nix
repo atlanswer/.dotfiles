@@ -128,7 +128,7 @@
           # Nix settings
           # nix.package = pkgs.lixPackageSets.stable.lix;
           launchd.daemons.nix-daemon.serviceConfig.EnvironmentVariables = proxy_list;
-          nix.package = pkgs.lix;
+          # nix.package = pkgs.lix;
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;
