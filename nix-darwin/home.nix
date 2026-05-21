@@ -38,9 +38,10 @@ in
     # Android
     zulu17
     gradle
-    watchman
+    # watchman # To homebrew
     # iOS
     cocoapods
+    ccache
 
     nodejs_latest
     rustc
@@ -78,6 +79,7 @@ in
     rar
 
     mihomo
+    hysteria
   ];
 
   home.sessionVariables = {

@@ -70,6 +70,7 @@
             brews = [
               "mas"
               "sevenzip"
+              "watchman"
             ];
             greedyCasks = true;
             casks = [
@@ -82,6 +83,7 @@
               "t3-code"
               "codex"
               "codex-app"
+              "moonlight"
               "windows-app"
             ];
             masApps = {
@@ -115,9 +117,12 @@
           time.timeZone = "Asia/Shanghai";
           fonts.packages = with pkgs; [
             nerd-fonts.fira-code
+            geist-font
           ];
           nixpkgs.hostPlatform = hostPlatform;
           nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "rar" ];
+          # Nix settings
+          launchd.daemons.nix-daemon.serviceConfig.EnvironmentVariables = proxy_list;
           # nixpkgs.overlays = [ ( final: prev: {
           #   inherit (prev.lixPackageSets.stable)
           #     nixpkgs-review
@@ -125,10 +130,8 @@
           #     nix-fast-build
           #     colmena;
           # }) ];
-          # Nix settings
-          # nix.package = pkgs.lixPackageSets.stable.lix;
-          launchd.daemons.nix-daemon.serviceConfig.EnvironmentVariables = proxy_list;
           # nix.package = pkgs.lix;
+          nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;

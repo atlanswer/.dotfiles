@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "split",
+  "cli_default_open_behavior": "new_window",
   "use_system_window_tabs": true,
   "edit_predictions": {
     "provider": "zed",
@@ -69,6 +71,10 @@
         "!pylsp",
       ],
     },
+    "Kotlin": {
+      "language_servers": ["kotlin-lsp"],
+      "formatter": "language_server",
+    },
     "LaTeX": {
       "formatter": {
         "external": {
@@ -78,30 +84,19 @@
       },
     },
   },
+  "lsp": {
+    "kotlin-lsp": {},
+  },
   "agent": {
     "default_profile": "minimal",
     "default_model": {
       "provider": "openrouter",
-      "model": "openrouter/pony-alpha",
+      "model": "openrouter/owl-alpha",
     },
   },
   "language_models": {
     "open_router": {
-      "available_models": [
-        {
-          "name": "xiaomi/mimo-v2-flash:free",
-          "display_name": "Xiaomi: MiMo-V2-Flash (free)",
-          "max_tokens": 256000,
-          // "max_output_tokens": 8192,
-          // "max_completion_tokens": 8192,
-          "supports_tools": true,
-          "supports_images": true,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 8192,
-          },
-        },
-      ],
+      "available_models": [],
     },
   },
   "icon_theme": {
