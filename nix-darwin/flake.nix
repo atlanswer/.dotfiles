@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     android-nixpkgs = {
@@ -87,8 +87,12 @@
               "windows-app"
             ];
             masApps = {
-              "Apple Developer" = 640199958;
               "Xcode" = 497799835;
+              "Apple Developer" = 640199958;
+              "GarageBand" = 682658836;
+              "Pages: Create Documents" = 361309726;
+              "Numbers: Make Spreadsheets" = 361304891;
+              "Keynote: Design Presentations" = 361285480;
             };
             global = {
               autoUpdate = true;
