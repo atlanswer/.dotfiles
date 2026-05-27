@@ -24,6 +24,7 @@ in
         sources-android-36
         build-tools-35-0-0
         build-tools-36-1-0
+        ndk-27-0-12077973
         ndk-27-1-12297006
         cmake-3-22-1
       ];
