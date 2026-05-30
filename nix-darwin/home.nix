@@ -71,6 +71,7 @@ in
     btop
     fastfetch
     curl
+    xh
     wget
     file
     tree
@@ -251,6 +252,14 @@ in
 
   services.ssh-agent = {
     enable = true;
+  };
+
+  services.skhd = {
+    enable = true;
+    config = ''
+      # Launch Ghostty
+      cmd - return : open -a "Ghostty"
+    '';
   };
 
   fonts.fontconfig = {
