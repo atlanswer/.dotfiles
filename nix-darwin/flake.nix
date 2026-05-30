@@ -15,6 +15,10 @@
       url = "github:tadfisher/android-nixpkgs/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    paneru = {
+      url = "github:karinushka/paneru";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +27,7 @@
       nix-darwin,
       home-manager,
       android-nixpkgs,
+      paneru,
       ...
     }:
     let
@@ -49,6 +54,7 @@
             };
         in
         {
+          imports = [ paneru.darwinModules.paneru ];
           nixpkgs.overlays = [ android-nixpkgs.overlays.default ];
           # List packages installed in system profile
           # To search by name, run: $ nix-env -qaP | grep wget
@@ -116,6 +122,58 @@
 
           programs.zsh.enable = true;
 
+          services.paneru = {
+            enable = true;
+            settings = {
+              options = {
+                focus_follows_mouse = true;
+                mouse_follows_focus = true;
+                # animation_speed = 50;
+                preset_column_widths = [
+                  0.333
+                  0.5
+                  0.667
+                ];
+              };
+              swipe = {
+                sensitivity = 0.3;
+                deceleration = 10.0;
+                continuous = false;
+                gesture = {
+                  fingers_count = 3;
+                };
+              };
+              bindings = {
+                window_focus_west = "rcmd - h";
+                window_swap_west = "rcmd + shift - h";
+                window_focus_east = "rcmd - l";
+                window_swap_east = "rcmd + shift - l";
+                window_stack = "rcmd + alt - h";
+                window_unstack = "rcmd + alt - l";
+                window_manage = "rcmd - v";
+                window_center = "rcmd - c";
+                window_resize = "rcmd - r";
+                window_fullwidth = "rcmd - f";
+
+                window_virtual_north = "rcmd - k";
+                window_virtual_south = "rcmd - j";
+                window_virtualmove_north = "rcmd + shift - k";
+                window_virtualmove_south = "rcmd + shift - j";
+                window_virtualnum_1 = "rcmd - 1";
+                window_virtualnum_2 = "rcmd - 2";
+                window_virtualnum_3 = "rcmd - 3";
+                window_virtualmovenum_1 = "rcmd + alt - 1";
+                window_virtualmovenum_2 = "rcmd + alt - 2";
+                window_virtualmovenum_3 = "rcmd + alt - 3";
+                window_virtualsendnum_1 = "rcmd + alt + shift - 1";
+                window_virtualsendnum_2 = "rcmd + alt + shift - 2";
+                window_virtualsendnum_3 = "rcmd + alt + shift - 3";
+
+                quit = "rcmd + shift - m";
+              };
+            };
+          };
+
           networking.hostName = "bad-apple";
           networking.computerName = "Bad Apple";
           time.timeZone = "Asia/Shanghai";
@@ -167,13 +225,13 @@
           home-manager.darwinModules.home-manager
           {
             home-manager = {
+              extraSpecialArgs = { inherit inputs; };
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
+              backupFileExtension = "backup";
               users = {
                 atlanswer = ./home.nix;
               };
-              backupFileExtension = "backup";
             };
           }
         ];
