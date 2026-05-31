@@ -1,7 +1,6 @@
-# This is Git's per-user configuration file.
 [user]
     name = Atlanswer
-    email = atlanswer@gmail.com
+    email = i@atlanswer.com
 [init]
     defaultBranch = main
 [core]
@@ -15,13 +14,12 @@
     rebase = false
     ff = only
 [fetch]
+    showForcedUpdates = true
     rebase = false
     ff = only
     prune = true
 [push]
     autoSetupRemote = true
-[rerere]
-    enabled = true
 [gpg]
     format = ssh
 [gpg "ssh"]
@@ -34,4 +32,6 @@
     gpgsign = true
 [diff]
     external = difft
+[pager]
+    difftool = true
 

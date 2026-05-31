@@ -1,4 +1,7 @@
-font-family = "FiraCode Nerd Font"
+theme = dark:Flexoki Dark, light:Flexoki Light
+font-family = "FiraCode Nerd Font", monospace
+adjust-cursor-thickness = 200%
+
 shell-integration-features = sudo,ssh-env,ssh-terminfo
 
 macos-option-as-alt = true
