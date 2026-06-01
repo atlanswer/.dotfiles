@@ -196,9 +196,9 @@
                 window_virtualmovenum_1 = "rcmd + alt - 1";
                 window_virtualmovenum_2 = "rcmd + alt - 2";
                 window_virtualmovenum_3 = "rcmd + alt - 3";
-                window_virtualsendnum_1 = "rcmd + alt + shift - 1";
-                window_virtualsendnum_2 = "rcmd + alt + shift - 2";
-                window_virtualsendnum_3 = "rcmd + alt + shift - 3";
+                window_virtualsendnum_1 = "rcmd + shift - 1";
+                window_virtualsendnum_2 = "rcmd + shift - 2";
+                window_virtualsendnum_3 = "rcmd + shift - 3";
 
                 quit = "rcmd + shift - m";
               };

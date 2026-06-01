@@ -75,6 +75,9 @@
       "language_servers": ["kotlin-lsp"],
       "formatter": "language_server",
     },
+    "Nix": {
+      "language_servers": ["nixd", "!nil"],
+    },
     "LaTeX": {
       "formatter": {
         "external": {
