@@ -31,6 +31,7 @@
       ...
     }:
     let
+      username = "atlanswer";
       nix-darwin-config =
         { pkgs, ... }:
         let
@@ -122,6 +123,36 @@
 
           programs.zsh.enable = true;
 
+          users.users.${username} = {
+            shell = pkgs.zsh;
+            openssh.authorizedKeys.keys = [
+              "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBj7491dQsMgG2O7QJHdA3DVTZm0u5X4O0zlKT9fI5A8 Striker"
+            ];
+          };
+
+          services.openssh = {
+            enable = true;
+            extraConfig = ''
+              # Key-only login
+              PasswordAuthentication no
+              KbdInteractiveAuthentication no
+              ChallengeResponseAuthentication no
+              PubkeyAuthentication yes
+
+              # Avoid accidentally allowing root/admin escalation over SSH
+              PermitRootLogin no
+
+              # Keep forwarding off by default; enable per-host later if needed
+              AllowAgentForwarding no
+              AllowTcpForwarding no
+              X11Forwarding no
+
+              # Only allow SSH source addresses from the Tailscale CGNAT range.
+              # This avoids binding sshd to a dynamic Tailscale interface/IP.
+              AllowUsers ${username}@100.64.0.0/10
+            '';
+          };
+
           services.paneru = {
             enable = true;
             settings = {
@@ -204,8 +235,7 @@
               touchIdAuth = true;
             };
           };
-          users.users.atlanswer.shell = pkgs.zsh;
-          system.primaryUser = "atlanswer";
+          system.primaryUser = username;
           system.keyboard = {
             enableKeyMapping = true;
             remapCapsLockToEscape = true;
@@ -230,7 +260,7 @@
               useUserPackages = true;
               backupFileExtension = "backup";
               users = {
-                atlanswer = ./home.nix;
+                ${username} = ./home.nix;
               };
             };
           }

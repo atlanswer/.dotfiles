@@ -258,7 +258,7 @@ in
     enable = true;
     config = ''
       # Launch Ghostty
-      cmd - return : open "$HOME/Applications/Home Manager Apps/Ghostty.app"
+      rcmd - return : open "$HOME/Applications/Home Manager Apps/Ghostty.app"
     '';
   };
 
