@@ -1,5 +1,5 @@
 theme = dark:Flexoki Dark, light:Flexoki Light
-font-family = "FiraCode Nerd Font", monospace
+font-family = FiraCode Nerd Font
 adjust-cursor-thickness = 200%
 
 shell-integration-features = sudo,ssh-terminfo,ssh-env
