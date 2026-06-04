@@ -161,15 +161,15 @@
                 mouse_follows_focus = true;
                 animation_speed = 40;
                 preset_column_widths = [
-                  0.333
+                  # 0.333
                   0.5
                   0.667
                 ];
               };
               swipe = {
-                sensitivity = 0.35;
-                deceleration = 6.0;
-                continuous = true;
+                sensitivity = 0.4;
+                deceleration = 7.0;
+                continuous = false;
                 gesture = {
                   fingers_count = 3;
                 };
