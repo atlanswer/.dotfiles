@@ -73,9 +73,11 @@
             enable = true;
             enableZshIntegration = true;
             brews = [
+              "vite-plus"
               "mas"
               "sevenzip"
               "watchman"
+              "pi-coding-agent"
             ];
             greedyCasks = true;
             casks = [
@@ -86,6 +88,7 @@
               "affinity"
               "android-studio"
               "opencode-desktop"
+              # "t3-code"
               # "codex"
               "codex-app"
               "moonlight"

@@ -42,12 +42,13 @@ in
     # iOS
     cocoapods
     ccache
-
+    # JavaScript
     nodejs_latest
+    # Rust
     rustc
     cargo-cache
     cargo-update
-
+    # Dev tools
     dust
     scc
     tree-sitter
@@ -56,10 +57,10 @@ in
     nixd
     nixfmt # statix deadnix
     zimfw
-
+    # Tools
     localsend
     typst
-
+    # Core utils
     curl
     xh
     wget
@@ -68,7 +69,7 @@ in
     stow
     iproute2mac
     rar
-
+    # Proxy
     mihomo
     hysteria
   ];
@@ -214,7 +215,7 @@ in
       tools = { };
     };
     pi-coding-agent = {
-      enable = true;
+      enable = false;
     };
     t3code = {
       enable = true;
@@ -234,7 +235,7 @@ in
         working-copy.eol-conversion = "input";
         git.sign-on-push = true;
         signing.backend = "ssh";
-        signing.key = "~/.ssh/id_ecdsa_sk_rk";
+        signing.key = "~/.ssh/id_ed25519.pub";
       };
     };
     git = {
@@ -242,7 +243,7 @@ in
       settings = {
         user.name = "atlanswer";
         user.email = "i@atlanswer.com";
-        user.signingKey = "~/.ssh/id_ecdsa_sk_rk";
+        user.signingKey = "~/.ssh/id_ed25519.pub";
         core.autocrlf = "input";
         init.defaultBranch = "main";
         color.ui = true;
