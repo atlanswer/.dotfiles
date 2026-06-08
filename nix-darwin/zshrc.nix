@@ -65,6 +65,9 @@ let
       unset no_proxy
       unset NO_PROXY
     }
+
+    # Use proxy by default
+    setproxy
   '';
 in
 lib.mkMerge [

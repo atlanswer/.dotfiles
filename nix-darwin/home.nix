@@ -127,6 +127,69 @@ in
     fastfetch = {
       enable = true;
     };
+    difftastic = {
+      enable = true;
+      git.enable = true;
+      jujutsu.enable = false;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      sideloadInitLua = true;
+    };
+    bun = {
+      enable = true;
+      enableGitIntegration = true;
+      settings = {
+        install = {
+          linker = "isolated";
+          globalStore = true;
+          minimumReleaseAge = 259200;
+        };
+      };
+    };
+    ghostty = {
+      enable = true;
+      package = pkgs.ghostty-bin;
+      enableZshIntegration = true;
+    };
+    tmux = {
+      enable = true;
+      clock24 = true;
+      keyMode = "vi";
+      mouse = true;
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = false;
+      enableVteIntegration = true;
+      defaultKeymap = "viins";
+      history = {
+        append = true;
+        expireDuplicatesFirst = true;
+      };
+      envExtra = "setopt no_global_rcs";
+      initContent = import ./zshrc.nix { inherit lib; };
+    };
+    ripgrep = {
+      enable = true;
+    };
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      shellWrapperName = "y";
+    };
+    uv = {
+      enable = true;
+    };
     zed-editor = {
       enable = true;
     };
@@ -150,144 +213,71 @@ in
       skills = { };
       tools = { };
     };
+    pi-coding-agent = {
+      enable = true;
+    };
     t3code = {
       enable = true;
     };
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    sideloadInitLua = true;
-  };
-
-  programs.bun = {
-    enable = true;
-    enableGitIntegration = true;
-    settings = {
-      install = {
-        linker = "isolated";
-        globalStore = true;
-        minimumReleaseAge = 259200;
+    java = {
+      enable = true;
+      package = pkgs.zulu17;
+    };
+    gradle = {
+      enable = true;
+    };
+    jujutsu = {
+      enable = true;
+      settings = {
+        user.name = "atlanswer";
+        user.email = "i@atlanswer.com";
+        working-copy.eol-conversion = "input";
+        git.sign-on-push = true;
+        signing.backend = "ssh";
+        signing.key = "~/.ssh/id_ecdsa_sk_rk";
       };
     };
-  };
-
-  programs.ghostty = {
-    enable = true;
-    package = pkgs.ghostty-bin;
-    enableZshIntegration = true;
-  };
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    keyMode = "vi";
-    mouse = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = false;
-    enableVteIntegration = true;
-    defaultKeymap = "viins";
-    history = {
-      append = true;
-      expireDuplicatesFirst = true;
+    git = {
+      enable = true;
+      settings = {
+        user.name = "atlanswer";
+        user.email = "i@atlanswer.com";
+        user.signingKey = "~/.ssh/id_ecdsa_sk_rk";
+        core.autocrlf = "input";
+        init.defaultBranch = "main";
+        color.ui = true;
+        pull.rebase = false;
+        pull.ff = "only";
+        fetch.rebase = false;
+        fetch.ff = "only";
+        fetch.prune = true;
+        push.autoSetupRemote = true;
+      };
+      signing = {
+        format = "ssh";
+        signByDefault = true;
+      };
+      maintenance.enable = true;
     };
-    envExtra = "setopt no_global_rcs";
-    initContent = import ./zshrc.nix { inherit lib; };
-  };
-
-  programs.ripgrep = {
-    enable = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.yazi = {
-    enable = true;
-    enableZshIntegration = true;
-    shellWrapperName = "y";
-  };
-
-  programs.uv = {
-    enable = true;
-  };
-
-  programs.java = {
-    enable = true;
-    package = pkgs.zulu17;
-  };
-
-  programs.gradle = {
-    enable = true;
-  };
-
-  programs.jujutsu = {
-    enable = true;
-    settings = {
-      user.name = "atlanswer";
-      user.email = "i@atlanswer.com";
-      working-copy.eol-conversion = "input";
-      git.sign-on-push = true;
-      signing.backend = "ssh";
-      signing.key = "~/.ssh/id_ecdsa_sk_rk";
+    mpv = {
+      enable = true;
+      config = {
+        profile = "high-quality";
+        cscale = "catmull_rom";
+        deband = true;
+        icc-profile-auto = true;
+        blend-subtitles = "video";
+        audio-file-auto = "fuzzy";
+        sub-auto = "fuzzy";
+        target-colorspace-hint = true;
+        hwdec = "auto";
+        keep-open = true;
+        save-position-on-quit = true;
+        watch-later-options = "start,vid,aid,sid";
+      };
     };
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "atlanswer";
-      user.email = "i@atlanswer.com";
-      user.signingKey = "~/.ssh/id_ecdsa_sk_rk";
-      core.autocrlf = "input";
-      init.defaultBranch = "main";
-      color.ui = true;
-      pull.rebase = false;
-      pull.ff = "only";
-      fetch.rebase = false;
-      fetch.ff = "only";
-      fetch.prune = true;
-      push.autoSetupRemote = true;
-    };
-    signing = {
-      format = "ssh";
-      signByDefault = true;
-    };
-    maintenance.enable = true;
-  };
-
-  programs.difftastic = {
-    enable = true;
-    git.enable = true;
-    jujutsu.enable = false;
-  };
-
-  programs.mpv = {
-    enable = true;
-    config = {
-      profile = "high-quality";
-      cscale = "catmull_rom";
-      deband = true;
-      icc-profile-auto = true;
-      blend-subtitles = "video";
-      audio-file-auto = "fuzzy";
-      sub-auto = "fuzzy";
-      target-colorspace-hint = true;
-      hwdec = "auto";
-      keep-open = true;
-      save-position-on-quit = true;
-      watch-later-options = "start,vid,aid,sid";
+    home-manager = {
+      enable = true;
     };
   };
 
@@ -389,6 +379,4 @@ in
   # changes in each release.
   home.stateVersion = "26.05";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
