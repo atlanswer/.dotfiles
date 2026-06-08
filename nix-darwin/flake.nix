@@ -79,14 +79,14 @@
             ];
             greedyCasks = true;
             casks = [
-              "zed"
+              # "zed"
               "tailscale-app"
               "zen"
               "helium-browser"
               "affinity"
               "android-studio"
-              "t3-code"
-              "codex"
+              "opencode-desktop"
+              # "codex"
               "codex-app"
               "moonlight"
               "windows-app"

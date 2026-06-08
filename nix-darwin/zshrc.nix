@@ -18,7 +18,20 @@ let
   '';
   homebrew = lib.mkOrder 600 ''
     if [[ -x /opt/homebrew/bin/brew ]]; then
-      eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+      export HOMEBREW_PREFIX="/opt/homebrew"
+      export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+      export HOMEBREW_REPOSITORY="/opt/homebrew"
+      # Keep Homebrew completions available, but low priority
+      fpath+=("/opt/homebrew/share/zsh/site-functions")
+      export FPATH
+      # Homebrew binaries are available
+      path+=(
+        /opt/homebrew/bin
+        /opt/homebrew/sbin
+      )
+      # Optional documentation paths, also low priority
+      export MANPATH="${"MANPATH:-"}:/opt/homebrew/share/man"
+      export INFOPATH="${"INFOPATH:-"}:/opt/homebrew/share/info"
     fi
   '';
   customizations = lib.mkOrder 1500 ''

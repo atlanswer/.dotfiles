@@ -37,9 +37,7 @@ in
   };
 
   home.packages = with pkgs; [
-    # Android
-    zulu17
-    gradle
+    # Expo
     # watchman # To homebrew
     # iOS
     cocoapods
@@ -47,15 +45,9 @@ in
 
     nodejs_latest
     rustc
-    cargo
     cargo-cache
     cargo-update
 
-    # ripgrep # required by codex in homebrew
-    fzf
-    eza
-    bat
-    fd
     dust
     scc
     tree-sitter
@@ -68,15 +60,11 @@ in
     localsend
     typst
 
-    tealdeer
-    btop
-    fastfetch
     curl
     xh
     wget
     file
     tree
-    jq
     stow
     iproute2mac
     rar
@@ -87,7 +75,6 @@ in
 
   home.sessionVariables = {
     # Android
-    JAVA_HOME = "${pkgs.zulu17}";
     # ANDROID_HOME = androidSdkPath;
     # ANDROID_NDK_ROOT = "${ANDROID_HOME}/ndk";
   };
@@ -98,6 +85,76 @@ in
     # "${androidSdk}/libexec/android-sdk/build-tools/<>"
   ];
 
+  programs = {
+    eza = {
+      enable = true;
+    };
+    bat = {
+      enable = true;
+    };
+    btop = {
+      enable = true;
+      settings = {
+        update_ms = 2000;
+        vim_keys = true;
+        rounded_corners = true;
+        color_theme = "Default";
+        graph_symbol = "braille";
+        theme_background = false;
+        truecolor = true;
+        terminal_sync = true;
+      };
+    };
+    fzf = {
+      enable = true;
+      # enableZshIntegration = true; # Managed by zim
+      tmux = {
+        enableShellIntegration = true;
+      };
+    };
+    fd = {
+      enable = true;
+    };
+    jq = {
+      enable = true;
+    };
+    tealdeer = {
+      enable = true;
+    };
+    cargo = {
+      enable = true;
+    };
+    fastfetch = {
+      enable = true;
+    };
+    zed-editor = {
+      enable = true;
+    };
+    codex = {
+      enable = true;
+    };
+    opencode = {
+      enable = true;
+      settings = {
+        autoupdate = false;
+        share = "disabled";
+        snapshot = false;
+        model = "openai/gpt-5.5";
+      };
+      tui = {
+        scroll_acceleration.enabled = true;
+        diff_style = "auto";
+      };
+      agents = { };
+      commands = { };
+      skills = { };
+      tools = { };
+    };
+    t3code = {
+      enable = true;
+    };
+  };
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -106,6 +163,7 @@ in
 
   programs.bun = {
     enable = true;
+    enableGitIntegration = true;
     settings = {
       install = {
         linker = "isolated";
@@ -118,6 +176,7 @@ in
   programs.ghostty = {
     enable = true;
     package = pkgs.ghostty-bin;
+    enableZshIntegration = true;
   };
 
   programs.tmux = {
@@ -140,18 +199,8 @@ in
     initContent = import ./zshrc.nix { inherit lib; };
   };
 
-  programs.opencode = {
+  programs.ripgrep = {
     enable = true;
-    settings = {
-      autoupdate = false;
-      share = "disabled";
-      snapshot = false;
-      model = "openai/gpt-5.5";
-    };
-    tui = {
-      scroll_acceleration.enabled = true;
-      diff_style = "auto";
-    };
   };
 
   programs.starship = {
@@ -171,6 +220,15 @@ in
   };
 
   programs.uv = {
+    enable = true;
+  };
+
+  programs.java = {
+    enable = true;
+    package = pkgs.zulu17;
+  };
+
+  programs.gradle = {
     enable = true;
   };
 
