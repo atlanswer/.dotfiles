@@ -66,7 +66,7 @@
           environment.variables = {
             EDITOR = "nvim";
             # Touch ID for SSH agent: https://gist.github.com/arianvp/5f59f1783e3eaf1a2d4cd8e952bb4acf
-            SSH_SK_PROVIDER = "/usr/lib/ssh-keychain.dylib";
+            # SSH_SK_PROVIDER = "/usr/lib/ssh-keychain.dylib";
           };
 
           homebrew = {
