@@ -112,5 +112,16 @@
     "light": "Flexoki Light",
     "dark": "Flexoki Dark",
   },
+  "auto_install_extensions": {
+    "html": true,
+    "colored-zed-icons-theme": true,
+    "flexoki-themes": true,
+    "git-firefly": true,
+    "kotlin": true,
+    "latex": false,
+    "pylsp": true,
+    "toml": true,
+    "nix": true,
+  },
   "proxy": "http://localhost:1080",
 }
