@@ -2,7 +2,8 @@
 let
   zshOpts = lib.mkOrder 500 "";
   zimInit = lib.mkOrder 550 ''
-    ZIM_CONFIG_FILE=~/.config/zimrc
+    ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+    ZDOTDIR=~/.config
     ZIM_HOME=''${ZDOTDIR:-''${HOME}}/.zim
     # Download zimfw plugin manager if missing.
     if [[ ! -e ''${ZIM_HOME}/zimfw.zsh ]]; then
