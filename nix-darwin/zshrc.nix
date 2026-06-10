@@ -31,8 +31,8 @@ let
         /opt/homebrew/sbin
       )
       # Optional documentation paths, also low priority
-      export MANPATH="${"MANPATH:-"}:/opt/homebrew/share/man"
-      export INFOPATH="${"INFOPATH:-"}:/opt/homebrew/share/info"
+      export MANPATH="''${MANPATH:-}:/opt/homebrew/share/man"
+      export INFOPATH="''${INFOPATH:-}:/opt/homebrew/share/info"
     fi
   '';
   customizations = lib.mkOrder 1500 ''
