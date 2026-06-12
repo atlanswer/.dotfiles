@@ -80,7 +80,7 @@
               "mas"
               "sevenzip"
               "watchman"
-              "pi-coding-agent"
+              # "pi-coding-agent"
             ];
             greedyCasks = true;
             casks = [
@@ -89,9 +89,9 @@
               "zen"
               "helium-browser"
               "affinity"
-              "android-studio"
+              # "android-studio"
               "opencode-desktop"
-              # "t3-code"
+              "t3-code"
               # "codex"
               "codex-app"
               "moonlight"
@@ -114,7 +114,7 @@
               upgrade = true;
               cleanup = "zap";
               extraEnv = proxy_list;
-              extraFlags = [ "--force-cleanup" ];
+              # extraFlags = [ "--force-cleanup" ];
             };
           };
 
@@ -174,7 +174,7 @@
               };
               swipe = {
                 sensitivity = 0.35;
-                deceleration = 4.0;
+                deceleration = 6.0;
                 continuous = false;
                 gesture = {
                   fingers_count = 3;
@@ -230,7 +230,7 @@
           #     colmena;
           # }) ];
           # nix.package = pkgs.lix;
-          nix.package = pkgs.lixPackageSets.stable.lix;
+          # nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;

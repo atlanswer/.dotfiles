@@ -171,7 +171,7 @@ in
         expireDuplicatesFirst = true;
       };
       envExtra = "setopt no_global_rcs";
-      initContent = import ./zshrc.nix { inherit lib; };
+      initContent = import ./zshrc.nix { inherit lib pkgs; };
     };
     ripgrep = {
       enable = true;
@@ -219,7 +219,7 @@ in
       enable = false;
     };
     t3code = {
-      enable = true;
+      enable = false;
     };
     java = {
       enable = true;
