@@ -1,6 +1,8 @@
 auto-update = off
 background-opacity = 0
 background-blur = macos-glass-regular
+background-opacity = 0
+background-blur = macos-glass-regular
 theme = dark:Flexoki Dark, light:Flexoki Light
 font-family = FiraCode Nerd Font
 font-family = Lantinghei SC
