@@ -114,7 +114,6 @@
               upgrade = true;
               cleanup = "zap";
               extraEnv = proxy_list;
-              # extraFlags = [ "--force-cleanup" ];
             };
           };
 
