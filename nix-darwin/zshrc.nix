@@ -41,6 +41,7 @@ let
     export PATH="$PATH:$HOME/.bun/bin"
 
     function setproxy() {
+      export GIT_SSH_COMMAND='ssh -o ProxyCommand="nc -x 127.0.0.1:1080 -X 5 %h %p"'
       export all_proxy="socks5h://localhost:1080"
       export ALL_PROXY=$all_proxy
       export https_proxy="http://localhost:1080"
@@ -52,6 +53,7 @@ let
     }
 
     function unsetproxy() {
+      unset GIT_SSH_COMMAND
       unset all_proxy
       unset ALL_PROXY
       unset https_proxy
