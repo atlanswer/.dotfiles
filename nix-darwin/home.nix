@@ -40,10 +40,10 @@ in
     # Expo
     # watchman # To homebrew
     # iOS
-    cocoapods
-    ccache
+    # cocoapods
+    # ccache
     # JavaScript
-    nodejs_latest
+    # nodejs_latest
     # Rust
     rustc
     cargo-cache
@@ -193,13 +193,13 @@ in
       enable = true;
     };
     zed-editor = {
-      enable = true;
+      enable = false;
     };
     codex = {
-      enable = true;
+      enable = false;
     };
     opencode = {
-      enable = true;
+      enable = false;
       settings = {
         autoupdate = false;
         share = "disabled";

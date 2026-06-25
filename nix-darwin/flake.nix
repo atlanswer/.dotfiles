@@ -76,15 +76,21 @@
             enable = true;
             enableZshIntegration = true;
             brews = [
+              "node"
               "vite-plus"
               "mas"
               "sevenzip"
+              "opencode"
+              "pi-coding-agent"
+              # Mobile
               "watchman"
-              # "pi-coding-agent"
+              # iOS
+              "cocoapods"
+              "ccache"
             ];
             greedyCasks = true;
             casks = [
-              # "zed"
+              "zed"
               "tailscale-app"
               "zen"
               "helium-browser"
@@ -92,7 +98,7 @@
               # "android-studio"
               "opencode-desktop"
               "t3-code"
-              # "codex"
+              "codex"
               "codex-app"
               "moonlight"
               "windows-app"
@@ -172,9 +178,9 @@
                 ];
               };
               swipe = {
-                sensitivity = 0.35;
-                deceleration = 6.0;
-                continuous = false;
+                sensitivity = 0.40;
+                deceleration = 5.0;
+                continuous = true;
                 gesture = {
                   fingers_count = 3;
                 };
@@ -231,6 +237,7 @@
           # nix.package = pkgs.lix;
           # nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
+          nix.settings.fallback = false;
           nix.channel.enable = false;
           nix.optimise.automatic = true;
           nix.gc.automatic = true;
