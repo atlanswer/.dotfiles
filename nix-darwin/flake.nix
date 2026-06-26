@@ -76,17 +76,22 @@
             enable = true;
             enableZshIntegration = true;
             brews = [
-              "node"
-              "vite-plus"
+              "mise"
+              # "node"
+              # "vite-plus"
               "mas"
               "sevenzip"
+              "dua-cli"
               "opencode"
-              "pi-coding-agent"
+              # "pi-coding-agent"
               # Mobile
               "watchman"
+              "fastlane"
               # iOS
               "cocoapods"
               "ccache"
+              # Others
+              "typst"
             ];
             greedyCasks = true;
             casks = [
@@ -101,6 +106,7 @@
               "codex"
               "codex-app"
               "moonlight"
+              "localsend"
               "windows-app"
             ];
             masApps = {
@@ -235,9 +241,8 @@
           #     colmena;
           # }) ];
           # nix.package = pkgs.lix;
-          # nix.package = pkgs.lixPackageSets.stable.lix;
+          nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
-          nix.settings.fallback = false;
           nix.channel.enable = false;
           nix.optimise.automatic = true;
           nix.gc.automatic = true;

@@ -45,12 +45,12 @@ in
     # JavaScript
     # nodejs_latest
     # Rust
-    rustc
-    cargo-cache
-    cargo-update
+    # rustc
+    # cargo-cache
+    # cargo-update
     # Dev tools
     scc
-    dua
+    # dua
     dust
     tree-sitter
     lua-language-server
@@ -61,6 +61,10 @@ in
     # Tools
     localsend
     typst
+    # AI
+    llama-cpp
+    # localsend
+    # typst
     # Core utils
     curl
     xh
@@ -88,6 +92,16 @@ in
   ];
 
   programs = {
+    mise = {
+      enable = false;
+      package = null;
+      enableZshIntegration = false;
+      globalConfig = {
+        tools = {
+          node = "latest";
+        };
+      };
+    };
     eza = {
       enable = true;
     };
