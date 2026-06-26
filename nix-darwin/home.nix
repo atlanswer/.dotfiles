@@ -49,9 +49,9 @@ in
     # cargo-cache
     # cargo-update
     # Dev tools
-    scc
+    # scc
     # dua
-    dust
+    # dust
     tree-sitter
     lua-language-server
     stylua
@@ -59,12 +59,10 @@ in
     nixfmt # statix deadnix
     zimfw
     # Tools
-    localsend
-    typst
-    # AI
-    llama-cpp
     # localsend
     # typst
+    # AI
+    # llama-cpp
     # Core utils
     curl
     xh

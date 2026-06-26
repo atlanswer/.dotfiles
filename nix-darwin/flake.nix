@@ -76,12 +76,11 @@
             enable = true;
             enableZshIntegration = true;
             brews = [
+              # Dev
               "mise"
               # "node"
               # "vite-plus"
-              "mas"
-              "sevenzip"
-              "dua-cli"
+              "llama.cpp"
               "opencode"
               # "pi-coding-agent"
               # Mobile
@@ -90,6 +89,13 @@
               # iOS
               "cocoapods"
               "ccache"
+              # Cli
+              "scc"
+              "dua-cli"
+              "dust"
+              # Utils
+              "mas"
+              "sevenzip"
               # Others
               "typst"
             ];
