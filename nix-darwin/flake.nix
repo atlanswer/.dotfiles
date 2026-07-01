@@ -78,8 +78,13 @@
             brews = [
               # Dev
               "mise"
-              # "node"
-              # "vite-plus"
+              "node"
+              "vite-plus"
+              "rust"
+              # "rustup"
+              "tree-sitter"
+              "lua-language-server"
+              "stylua"
               "llama.cpp"
               "opencode"
               # "pi-coding-agent"
@@ -93,11 +98,23 @@
               "scc"
               "dua-cli"
               "dust"
+              "xh"
+              "wget"
+              "iproute2mac"
+              "tree"
+              "stow"
               # Utils
               "mas"
               "sevenzip"
               # Others
               "typst"
+              # Proxy
+              {
+                name = "mihomo";
+                postinstall = "ln -sfn /Users/atlanswer/.config/mihomo/config.yaml /opt/homebrew/etc/mihomo/config.yaml";
+                restart_service = "changed";
+              }
+              "hysteria"
             ];
             greedyCasks = true;
             casks = [
@@ -114,6 +131,8 @@
               "moonlight"
               "localsend"
               "windows-app"
+              # Dev
+              "segger-jlink"
             ];
             masApps = {
               "Xcode" = 497799835;

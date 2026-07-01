@@ -37,13 +37,7 @@ in
   };
 
   home.packages = with pkgs; [
-    # Expo
-    # watchman # To homebrew
-    # iOS
-    # cocoapods
-    # ccache
-    # JavaScript
-    # nodejs_latest
+    zvm
     # Rust
     # rustc
     # cargo-cache
@@ -52,29 +46,19 @@ in
     # scc
     # dua
     # dust
-    tree-sitter
-    lua-language-server
-    stylua
+    # tree-sitter
+    # lua-language-server
+    # stylua
     nixd
     nixfmt # statix deadnix
     zimfw
-    # Tools
-    # localsend
-    # typst
-    # AI
-    # llama-cpp
     # Core utils
     curl
-    xh
-    wget
     file
-    tree
-    stow
-    iproute2mac
     rar
     # Proxy
-    mihomo
-    hysteria
+    # mihomo
+    # hysteria
   ];
 
   home.sessionVariables = {
@@ -295,23 +279,23 @@ in
     };
   };
 
-  launchd = {
-    agents = {
-      mihomo = {
-        enable = true;
-        config = {
-          Label = "mihomo-service";
-          ProgramArguments = [
-            "${pkgs.mihomo}/bin/mihomo"
-            "-d"
-            "${config.home.homeDirectory}/.config/mihomo"
-          ];
-          ProcessType = "Standard";
-          KeepAlive = true;
-        };
-      };
-    };
-  };
+  # launchd = {
+  #   agents = {
+  #     mihomo = {
+  #       enable = true;
+  #       config = {
+  #         Label = "mihomo-service";
+  #         ProgramArguments = [
+  #           "${pkgs.mihomo}/bin/mihomo"
+  #           "-d"
+  #           "${config.home.homeDirectory}/.config/mihomo"
+  #         ];
+  #         ProcessType = "Standard";
+  #         KeepAlive = true;
+  #       };
+  #     };
+  #   };
+  # };
 
   services.ssh-agent = {
     enable = true;
