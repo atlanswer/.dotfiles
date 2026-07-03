@@ -82,7 +82,7 @@
               "vite-plus"
               "rust"
               # "rustup"
-              "tree-sitter"
+              "tree-sitter-cli"
               "lua-language-server"
               "stylua"
               "llama.cpp"

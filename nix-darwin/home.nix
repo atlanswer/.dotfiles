@@ -39,22 +39,17 @@ in
   home.packages = with pkgs; [
     zvm
     # Rust
-    # rustc
     # cargo-cache
     # cargo-update
     # Dev tools
-    # scc
-    # dua
-    # dust
-    # tree-sitter
-    # lua-language-server
-    # stylua
     nixd
     nixfmt # statix deadnix
     zimfw
+    mbake
     # Core utils
     curl
     file
+    gnumake
     rar
     # Proxy
     # mihomo
