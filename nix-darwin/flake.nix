@@ -79,6 +79,7 @@
               # Dev
               "mise"
               "node"
+              "pnpm"
               "vite-plus"
               "rust"
               # "rustup"
@@ -133,6 +134,8 @@
               "windows-app"
               # Dev
               "segger-jlink"
+              # Modeling
+              "freecad"
             ];
             masApps = {
               "Xcode" = 497799835;

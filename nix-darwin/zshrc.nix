@@ -35,10 +35,12 @@ let
     export PATH="$PATH:$HOME/.cargo/bin"
     # zvm
     export PATH="$PATH:$HOME/.local/share/zvm/bin"
+    # pnpm
+    export PATH="$PATH:$HOME/Library/pnpm/bin"
+    # bun
+    # export PATH="$PATH:$HOME/.bun/bin"
     # uv
     export PATH="$PATH:$HOME/.local/bin"
-    # bun
-    export PATH="$PATH:$HOME/.bun/bin"
 
     function setproxy() {
       export GIT_SSH_COMMAND='ssh -o ProxyCommand="nc -x 127.0.0.1:1080 -X 5 %h %p"'
