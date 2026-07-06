@@ -12,7 +12,13 @@
   "cli_default_open_behavior": "new_window",
   "use_system_window_tabs": true,
   "edit_predictions": {
-    "provider": "zed",
+    "provider": "open_ai_compatible_api",
+    "open_ai_compatible_api": {
+      "api_url": "http://localhost:8080/v1/completions",
+      "model": "Zeta 2.1 Q6_K",
+      "prompt_format": "zeta2_1",
+      "max_output_tokens": 512,
+    },
   },
   "diagnostics": {
     "inline": {

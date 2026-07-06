@@ -82,11 +82,13 @@
               "pnpm"
               "vite-plus"
               "rust"
+              "go"
               # "rustup"
               "tree-sitter-cli"
               "lua-language-server"
               "stylua"
               "llama.cpp"
+              "hf"
               "opencode"
               # "pi-coding-agent"
               # Mobile
@@ -136,6 +138,7 @@
               "segger-jlink"
               # Modeling
               "freecad"
+              "kicad"
             ];
             masApps = {
               "Xcode" = 497799835;
