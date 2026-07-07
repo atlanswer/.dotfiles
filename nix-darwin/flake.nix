@@ -88,7 +88,7 @@
               "lua-language-server"
               "stylua"
               "llama.cpp"
-              "hf"
+              # "hf"
               "opencode"
               # "pi-coding-agent"
               # Mobile
