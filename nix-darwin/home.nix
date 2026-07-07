@@ -37,6 +37,7 @@ in
   };
 
   home.packages = with pkgs; [
+    nodejs_latest
     zvm
     # Rust
     # cargo-cache

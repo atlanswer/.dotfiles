@@ -12,13 +12,14 @@
   "cli_default_open_behavior": "new_window",
   "use_system_window_tabs": true,
   "edit_predictions": {
-    "provider": "open_ai_compatible_api",
-    "open_ai_compatible_api": {
-      "api_url": "http://localhost:8080/v1/completions",
-      "model": "Zeta 2.1 Q6_K",
-      "prompt_format": "zeta2_1",
-      "max_output_tokens": 512,
-    },
+    "provider": "zed",
+    // "provider": "open_ai_compatible_api",
+    // "open_ai_compatible_api": {
+    //   "api_url": "http://localhost:8080/v1/completions",
+    //   "model": "Zeta 2 Q4_K_M",
+    //   "prompt_format": "zeta2",
+    //   "max_output_tokens": 2048,
+    // },
   },
   "diagnostics": {
     "inline": {
@@ -119,16 +120,22 @@
     "light": "Flexoki Light",
     "dark": "Flexoki Dark",
   },
+  // https://zed.dev/docs/reference/all-settings#auto-install-extensions
   "auto_install_extensions": {
-    "html": true,
     "colored-zed-icons-theme": true,
     "flexoki-themes": true,
+    "html": true,
     "git-firefly": true,
-    "kotlin": true,
-    "latex": false,
-    "pylsp": true,
+    "pylsp": false,
+    "codebook": true,
+    "make": true,
     "toml": true,
+    "xml": true,
+    "sql": true,
+    "log": true,
     "nix": true,
+    "kotlin": false,
+    "latex": false,
   },
   "proxy": "http://localhost:1080",
 }

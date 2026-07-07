@@ -3,5 +3,5 @@
 minimumReleaseAge: 1440
 minimumReleaseAgeIgnoreMissingTime: false
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 2880
 
-dedupePeers: true
