@@ -206,18 +206,19 @@
             settings = {
               options = {
                 focus_follows_mouse = true;
-                mouse_follows_focus = true;
+                mouse_follows_focus = false;
                 animation_speed = 50;
                 virtual_workspace_animations = true;
                 preset_column_widths = [
                   0.5
                   0.667
                 ];
+                insert_windows_mid_strip = true;
               };
               swipe = {
                 sensitivity = 0.40;
                 deceleration = 5.0;
-                continuous = true;
+                continuous = false;
                 gesture = {
                   fingers_count = 3;
                 };
@@ -233,6 +234,7 @@
                 window_center = "rcmd - c";
                 window_resize = "rcmd - r";
                 window_fullwidth = "rcmd - f";
+                window_raise_floating = "rcmd + shift - f";
 
                 window_virtual_north = "rcmd - k";
                 window_virtual_south = "rcmd - j";
@@ -249,6 +251,7 @@
                 window_virtualsendnum_3 = "rcmd + shift - 3";
 
                 quit = "rcmd + shift - m";
+                restart = "rcmd + alt - m";
               };
             };
           };

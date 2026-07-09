@@ -191,12 +191,14 @@ in
       enable = false;
     };
     opencode = {
-      enable = false;
+      enable = true;
+      package = null;
       settings = {
         autoupdate = false;
         share = "disabled";
         snapshot = false;
         model = "openai/gpt-5.5";
+        lsp = false;
       };
       tui = {
         scroll_acceleration.enabled = true;
