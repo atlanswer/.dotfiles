@@ -128,6 +128,7 @@
               "helium-browser"
               "affinity"
               # "android-studio"
+              "sf-symbols"
               "opencode-desktop"
               "t3-code@nightly"
               "codex"
@@ -263,6 +264,9 @@
           fonts.packages = with pkgs; [
             nerd-fonts.fira-code
             geist-font
+            noto-fonts
+            noto-fonts-cjk-sans
+            noto-fonts-cjk-serif
           ];
           nixpkgs.hostPlatform = hostPlatform;
           nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "rar" ];
