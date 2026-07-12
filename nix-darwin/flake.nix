@@ -90,7 +90,7 @@
               "llama.cpp"
               # "hf"
               "opencode"
-              # "pi-coding-agent"
+              "pi-coding-agent"
               # Mobile
               "watchman"
               "fastlane"
@@ -110,6 +110,7 @@
               "mas"
               "sevenzip"
               # Others
+              "mpv"
               "typst"
               # Proxy
               {
@@ -128,9 +129,9 @@
               "affinity"
               # "android-studio"
               "opencode-desktop"
-              "t3-code"
+              "t3-code@nightly"
               "codex"
-              "codex-app"
+              "chatgpt"
               "moonlight"
               "localsend"
               "windows-app"

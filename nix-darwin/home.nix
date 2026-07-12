@@ -213,7 +213,13 @@ in
       enable = false;
     };
     t3code = {
-      enable = false;
+      enable = true;
+      package = null;
+      clientSettings = {
+        settings = { };
+      };
+      userSettings = { };
+      keybindings = [ ];
     };
     java = {
       enable = true;
@@ -256,7 +262,7 @@ in
       maintenance.enable = true;
     };
     mpv = {
-      enable = true;
+      enable = false;
       config = {
         profile = "high-quality";
         cscale = "catmull_rom";
@@ -276,24 +282,6 @@ in
       enable = true;
     };
   };
-
-  # launchd = {
-  #   agents = {
-  #     mihomo = {
-  #       enable = true;
-  #       config = {
-  #         Label = "mihomo-service";
-  #         ProgramArguments = [
-  #           "${pkgs.mihomo}/bin/mihomo"
-  #           "-d"
-  #           "${config.home.homeDirectory}/.config/mihomo"
-  #         ];
-  #         ProcessType = "Standard";
-  #         KeepAlive = true;
-  #       };
-  #     };
-  #   };
-  # };
 
   services.ssh-agent = {
     enable = true;
@@ -323,5 +311,4 @@ in
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "26.05";
-
 }
