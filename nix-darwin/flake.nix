@@ -158,7 +158,10 @@
               autoUpdate = true;
               upgrade = true;
               cleanup = "zap";
-              extraEnv = proxy_list;
+              extraEnv = proxy_list // {
+                HOMEBREW_CLEANUP_MAX_AGE_DAYS = "7";
+                HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS = "7";
+              };
             };
           };
 
@@ -284,7 +287,17 @@
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;
-          nix.gc.automatic = true;
+          nix.gc = {
+            automatic = true;
+            interval = [
+              {
+                Weekday = 1;
+                Hour = 9;
+                Minute = 15;
+              }
+            ];
+            options = "--delete-older-than 7d";
+          };
           security.pam.services = {
             sudo_local = {
               reattach = true;
