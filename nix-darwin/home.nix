@@ -197,7 +197,6 @@ in
         autoupdate = false;
         share = "disabled";
         snapshot = false;
-        model = "openai/gpt-5.5";
         lsp = false;
       };
       tui = {

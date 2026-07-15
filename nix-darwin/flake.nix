@@ -216,7 +216,7 @@
                 virtual_workspace_animations = true;
                 preset_column_widths = [
                   0.5
-                  0.667
+                  0.666
                 ];
                 insert_windows_mid_strip = true;
               };
