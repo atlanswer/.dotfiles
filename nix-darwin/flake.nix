@@ -127,16 +127,18 @@
               "zen"
               "helium-browser"
               "affinity"
+              "orbstack"
               # "android-studio"
               "sf-symbols"
               "opencode-desktop"
               "t3-code@nightly"
               "codex"
               "chatgpt"
+              # Tools
               "moonlight"
               "localsend"
               "windows-app"
-              # Dev
+              # Hardware
               "segger-jlink"
               # Modeling
               "freecad"
