@@ -14,6 +14,12 @@ let
   '';
   homebrew = lib.mkOrder 600 ''
     if [[ -x /opt/homebrew/bin/brew ]]; then
+      # Use homebrew installed packages
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+  '';
+  homebrewAppend = lib.mkOrder 650 ''
+    if [[ -x /opt/homebrew/bin/brew ]]; then
       export HOMEBREW_PREFIX="/opt/homebrew"
       export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
       export HOMEBREW_REPOSITORY="/opt/homebrew"
@@ -41,6 +47,8 @@ let
     # export PATH="$PATH:$HOME/.bun/bin"
     # uv
     export PATH="$PATH:$HOME/.local/bin"
+    # orbstack
+    path+=($HOME/.orbstack/bin)
 
     function setproxy() {
       export GIT_SSH_COMMAND='ssh -o ProxyCommand="nc -x 127.0.0.1:1080 -X 5 %h %p"'
