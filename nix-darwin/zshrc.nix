@@ -81,6 +81,7 @@ in
 lib.mkMerge [
   zimInit
   zshOpts
-  homebrew
+  # homebrew
+  homebrewAppend
   customizations
 ]
