@@ -133,7 +133,8 @@ in
     };
     bun = {
       enable = true;
-      enableGitIntegration = true;
+      package = null;
+      enableGitIntegration = false;
       settings = {
         install = {
           linker = "isolated";
