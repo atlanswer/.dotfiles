@@ -84,6 +84,7 @@
               "rust"
               "go"
               # "rustup"
+              "skopeo"
               "tree-sitter-cli"
               "lua-language-server"
               "stylua"
