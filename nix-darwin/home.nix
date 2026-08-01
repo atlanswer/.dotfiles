@@ -55,6 +55,7 @@ in
     # Proxy
     # mihomo
     # hysteria
+    mieru
   ];
 
   home.sessionVariables = {

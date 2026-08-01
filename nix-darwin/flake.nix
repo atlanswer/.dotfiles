@@ -121,6 +121,7 @@
                 restart_service = "changed";
               }
               "hysteria"
+              "xray"
             ];
             greedyCasks = true;
             casks = [
