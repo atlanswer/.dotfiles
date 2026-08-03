@@ -47,6 +47,7 @@ in
     nixfmt # statix deadnix
     zimfw
     mbake
+    postgresql
     # Core utils
     curl
     file

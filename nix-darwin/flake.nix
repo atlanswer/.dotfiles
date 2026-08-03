@@ -81,6 +81,7 @@
               # "node" # homebrew version doesn't support Temporal: https://github.com/Homebrew/homebrew-core/pull/281707
               "pnpm"
               "vite-plus"
+              "odin"
               "rust"
               "go"
               # "rustup"
