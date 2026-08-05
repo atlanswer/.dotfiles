@@ -144,6 +144,7 @@
               "windows-app"
               # Hardware
               "segger-jlink"
+              "bambu-studio"
               # Modeling
               "freecad"
               "kicad"
