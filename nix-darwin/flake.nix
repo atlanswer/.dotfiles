@@ -144,6 +144,7 @@
               "windows-app"
               # Hardware
               "segger-jlink"
+              "gcc-arm-embedded"
               "bambu-studio"
               # Modeling
               "freecad"
@@ -226,11 +227,12 @@
                   0.666
                 ];
                 insert_windows_mid_strip = true;
+                create_virtual_workspace_automatically = true;
               };
               swipe = {
                 sensitivity = 0.40;
                 deceleration = 5.0;
-                continuous = false;
+                continuous = true;
                 gesture = {
                   fingers_count = 3;
                 };
