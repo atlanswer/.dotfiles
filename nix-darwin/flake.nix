@@ -84,6 +84,7 @@
               "odin"
               "rust"
               "go"
+              "bear"
               # "rustup"
               "bun"
               "skopeo"
@@ -91,7 +92,6 @@
               "lua-language-server"
               "stylua"
               "llama.cpp"
-              # "hf"
               "opencode"
               "pi-coding-agent"
               # Mobile
