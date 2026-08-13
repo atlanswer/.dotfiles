@@ -39,23 +39,54 @@ in
   home.packages = with pkgs; [
     nodejs_latest
     zvm
-    # Rust
-    # cargo-cache
-    # cargo-update
-    # Dev tools
+    # odin
+    go
+    ### Rust
+    rustc
+    cargo-cache
+    cargo-update
+    ### Toolchain
+    gcc-arm-embedded
+    # gcc-arm-embedded-13
+    clang-tools
+    cmake
+    ninja
+    bear
+    ccache
+    ### AI
+    opencode
+    pi-coding-agent
+    # llama-cpp
+    ### Dev tools
+    stylua
     nixd
     nixfmt # statix deadnix
     zimfw
     mbake
     postgresql
-    # Core utils
+    skopeo
+    ### Cli
+    scc
+    dua
+    dust
+    xh
+    mas
+    ### Others
+    mpv
+    typst
+    ### Core utils
     curl
+    wget
     file
+    tree
     gnumake
+    stow
     rar
-    # Proxy
+    p7zip
+    ### Proxy
     # mihomo
-    # hysteria
+    hysteria
+    xray
     mieru
   ];
 
@@ -73,12 +104,12 @@ in
 
   programs = {
     mise = {
-      enable = false;
-      package = null;
+      enable = true;
+      # package = null;
       enableZshIntegration = false;
       globalConfig = {
         tools = {
-          node = "latest";
+          # node = "latest";
         };
       };
     };

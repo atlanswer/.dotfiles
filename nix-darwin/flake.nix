@@ -76,53 +76,29 @@
             enable = true;
             enableZshIntegration = true;
             brews = [
-              # Dev
-              "mise"
+              ### Dev
               # "node" # homebrew version doesn't support Temporal: https://github.com/Homebrew/homebrew-core/pull/281707
               "pnpm"
-              "vite-plus"
-              "odin"
-              "rust"
-              "go"
-              "bear"
-              # "rustup"
               "bun"
-              "skopeo"
+              "odin"
+              # "vite-plus"
               "tree-sitter-cli"
               "lua-language-server"
-              "stylua"
+              ### AI
               "llama.cpp"
-              "opencode"
-              "pi-coding-agent"
-              # Mobile
+              ### Mobile
               "watchman"
               "fastlane"
-              # iOS
+              ### iOS
               "cocoapods"
-              "ccache"
-              # Cli
-              "scc"
-              "dua-cli"
-              "dust"
-              "xh"
-              "wget"
+              ### Cli
               "iproute2mac"
-              "tree"
-              "stow"
-              # Utils
-              "mas"
-              "sevenzip"
-              # Others
-              "mpv"
-              "typst"
-              # Proxy
+              ### Proxy
               {
                 name = "mihomo";
                 postinstall = "ln -sfn /Users/atlanswer/.config/mihomo/config.yaml /opt/homebrew/etc/mihomo/config.yaml";
                 restart_service = "changed";
               }
-              "hysteria"
-              "xray"
             ];
             greedyCasks = true;
             casks = [
@@ -138,17 +114,16 @@
               "t3-code@nightly"
               "codex"
               "chatgpt"
-              # Tools
+              ### Tools
               "moonlight"
               "localsend"
               "windows-app"
-              # Hardware
+              ### Hardware
               "segger-jlink"
-              "gcc-arm-embedded"
-              "bambu-studio"
-              # Modeling
+              ### Modeling
               "freecad"
               "kicad"
+              "bambu-studio"
             ];
             masApps = {
               "Xcode" = 497799835;
