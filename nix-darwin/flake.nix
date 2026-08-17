@@ -114,7 +114,9 @@
               "t3-code@nightly"
               "codex"
               "chatgpt"
+              # "steam"
               ### Tools
+              "skim"
               "moonlight"
               "localsend"
               "windows-app"
