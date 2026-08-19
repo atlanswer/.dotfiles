@@ -66,6 +66,7 @@ in
     postgresql
     skopeo
     ### Cli
+    nixos-rebuild-ng
     scc
     dua
     dust
