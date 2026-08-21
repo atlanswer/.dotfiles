@@ -11,10 +11,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    android-nixpkgs = {
-      url = "github:tadfisher/android-nixpkgs/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     paneru = {
       url = "github:karinushka/paneru";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,7 +22,6 @@
       self,
       nix-darwin,
       home-manager,
-      android-nixpkgs,
       ...
     }:
     let
@@ -54,7 +49,6 @@
             };
         in
         {
-          nixpkgs.overlays = [ android-nixpkgs.overlays.default ];
           imports = [
             inputs.paneru.darwinModules.paneru
           ];
@@ -258,7 +252,13 @@
             noto-fonts-cjk-serif
           ];
           nixpkgs.hostPlatform = hostPlatform;
-          nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "rar" ];
+          nixpkgs.config = {
+            android_sdk.accept_license = true;
+            allowUnfreePredicate =
+              pkg:
+              pkgs.lib.getName pkg == "rar"
+              || (pkg.meta.homepage or null) == "https://developer.android.com/tools";
+          };
           # Nix settings
           launchd.daemons.nix-daemon.serviceConfig.EnvironmentVariables = proxy_list;
           # nixpkgs.overlays = [ ( final: prev: {

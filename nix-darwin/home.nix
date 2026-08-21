@@ -1,42 +1,38 @@
 {
-  config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
-  androidSdkPath = "${config.home.homeDirectory}/Library/Android/sdk";
+  androidComposition = pkgs.androidenv.composeAndroidPackages {
+    cmdLineToolsVersion = "latest";
+    platformToolsVersion = "latest";
+    platformVersions = [ "36" ];
+    includeSources = true;
+    buildToolsVersions = [
+      # "35.0.0"
+      "36.1.0"
+    ];
+    includeNDK = "if-supported";
+    ndkVersions = [
+      # "27.0.12077973"
+      "27.1.12297006"
+    ];
+    includeCmake = "if-supported";
+    cmakeVersions = [ "3.22.1" ];
+    includeEmulator = false;
+    toolsVersion = null;
+  };
+  androidSdk = androidComposition.androidsdk;
 in
 {
-  imports = [
-    # inputs.paneru.homeModules.paneru
-    inputs.android-nixpkgs.hmModule
-  ];
-
-  android-sdk = {
-    enable = true;
-    path = androidSdkPath;
-    packages =
-      sdk: with sdk; [
-        cmdline-tools-latest
-        platform-tools
-        platforms-android-36
-        sources-android-36
-        build-tools-35-0-0
-        build-tools-36-1-0
-        ndk-27-0-12077973
-        ndk-27-1-12297006
-        cmake-3-22-1
-      ];
-  };
-
   home = {
     username = "atlanswer";
     homeDirectory = lib.mkForce /Users/atlanswer;
   };
 
   home.packages = with pkgs; [
+    androidSdk
     nodejs_latest
     zvm
     # odin
@@ -92,16 +88,8 @@ in
   ];
 
   home.sessionVariables = {
-    # Android
-    # ANDROID_HOME = androidSdkPath;
-    # ANDROID_NDK_ROOT = "${ANDROID_HOME}/ndk";
+    ANDROID_HOME = "${androidSdk}/libexec/android-sdk";
   };
-
-  home.sessionPath = [
-    # "${androidSdk}/libexec/android-sdk/platform-tools"
-    # "${androidSdk}/libexec/android-sdk/cmdline-tools/latest/bin"
-    # "${androidSdk}/libexec/android-sdk/build-tools/<>"
-  ];
 
   programs = {
     mise = {
