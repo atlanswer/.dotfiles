@@ -68,6 +68,9 @@ in
     dust
     xh
     mas
+    sops
+    age
+    ssh-to-age
     ### Others
     (mpv.override { youtubeSupport = false; })
     typst
