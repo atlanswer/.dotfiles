@@ -69,7 +69,7 @@ in
     xh
     mas
     ### Others
-    mpv
+    (mpv.override { youtubeSupport = false; })
     typst
     ### Core utils
     curl
