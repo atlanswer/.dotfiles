@@ -126,7 +126,7 @@ in
     };
     fzf = {
       enable = true;
-      # enableZshIntegration = true; # Managed by zim
+      enableZshIntegration = false; # Managed by zim
       tmux = {
         enableShellIntegration = true;
       };

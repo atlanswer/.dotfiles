@@ -1,8 +1,10 @@
 { lib, pkgs, ... }:
 let
-  zshOpts = lib.mkOrder 500 "";
-  zimInit = lib.mkOrder 550 ''
+  zshOpts = lib.mkOrder 500 ''
     ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+    typeset -g fzf_default_completion=complete-word
+  '';
+  zimInit = lib.mkOrder 550 ''
     ZDOTDIR=~/.config
     ZIM_HOME=''${ZDOTDIR:-''${HOME}}/.zim
     # Install missing modules and update ''${ZIM_HOME}/init.zsh if missing or outdated.
@@ -79,8 +81,8 @@ let
   '';
 in
 lib.mkMerge [
-  zimInit
   zshOpts
+  zimInit
   # homebrew
   homebrewAppend
   customizations
