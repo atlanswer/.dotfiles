@@ -75,6 +75,7 @@
               "pnpm"
               "bun"
               "odin"
+              "mise"
               # "vite-plus"
               "tree-sitter-cli"
               "lua-language-server"

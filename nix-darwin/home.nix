@@ -96,8 +96,8 @@ in
 
   programs = {
     mise = {
-      enable = true;
-      # package = null;
+      enable = false;
+      package = null;
       enableZshIntegration = false;
       globalConfig = {
         tools = {
@@ -139,6 +139,11 @@ in
     };
     tealdeer = {
       enable = true;
+      enableAutoUpdates = false;
+      settings.updates = {
+        auto_update = true;
+        auto_update_interval_hours = 168;
+      };
     };
     cargo = {
       enable = true;
