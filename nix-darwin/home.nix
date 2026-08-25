@@ -50,7 +50,6 @@ in
     bear
     ccache
     ### AI
-    opencode
     pi-coding-agent
     # llama-cpp
     ### Dev tools
@@ -225,19 +224,21 @@ in
       enable = true;
       package = null;
       settings = {
-        autoupdate = false;
+        autoupdate = "notify";
         share = "disabled";
         snapshot = false;
-        lsp = false;
+        # lsp = false;
+        # permissions = [ ];
+        # instructions = [ ];
       };
       tui = {
         scroll_acceleration.enabled = true;
         diff_style = "auto";
       };
-      agents = { };
-      commands = { };
-      skills = { };
-      tools = { };
+      # agents = { };
+      # commands = { };
+      # skills = { };
+      # tools = { };
     };
     pi-coding-agent = {
       enable = false;
