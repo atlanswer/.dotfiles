@@ -115,6 +115,7 @@
               "moonlight"
               "localsend"
               "windows-app"
+              "linearmouse"
               ### Hardware
               "segger-jlink"
               ### Modeling

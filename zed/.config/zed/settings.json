@@ -12,7 +12,7 @@
   "cli_default_open_behavior": "new_window",
   "use_system_window_tabs": true,
   "edit_predictions": {
-    "provider": "zed",
+    "provider": "zed"
     // "provider": "open_ai_compatible_api",
     // "open_ai_compatible_api": {
     //   "api_url": "http://localhost:8080/v1/completions",
@@ -23,29 +23,29 @@
   },
   "diagnostics": {
     "inline": {
-      "enabled": true,
-    },
+      "enabled": true
+    }
   },
   "vim_mode": true,
   "base_keymap": "VSCode",
   "relative_line_numbers": "enabled",
   "colorize_brackets": true,
   "indent_guides": {
-    "coloring": "indent_aware",
+    "coloring": "indent_aware"
   },
   "sticky_scroll": {
-    "enabled": true,
+    "enabled": true
   },
   "git": {
     "inline_blame": {
-      "enabled": true,
-    },
+      "enabled": true
+    }
   },
   "gutter": {
-    "line_numbers": true,
+    "line_numbers": true
   },
   "file_types": {
-    "python": ["*.vpy"],
+    "python": ["*.vpy"]
   },
   "linked_edits": true,
   "show_edit_predictions": true,
@@ -57,17 +57,17 @@
   "use_system_prompts": false,
   "use_system_path_prompts": false,
   "prettier": {
-    "allowed": true,
+    "allowed": true
   },
   "toolbar": {
-    "code_actions": true,
+    "code_actions": true
   },
   "languages": {
     "CSS": {
       "language_servers": [
         "tailwindcss-intellisense-css",
-        "!vscode-css-language-server",
-      ],
+        "!vscode-css-language-server"
+      ]
     },
     "Python": {
       "language_servers": [
@@ -76,49 +76,49 @@
         "!basedpyright",
         "!pyrefly",
         "!pyright",
-        "!pylsp",
-      ],
+        "!pylsp"
+      ]
     },
     "Kotlin": {
       "language_servers": ["kotlin-lsp"],
-      "formatter": "language_server",
+      "formatter": "language_server"
     },
     "Nix": {
-      "language_servers": ["nixd", "!nil"],
+      "language_servers": ["nixd", "!nil"]
     },
     "LaTeX": {
       "formatter": {
         "external": {
           "command": "tex-fmt",
-          "arguments": ["--stdin"],
-        },
-      },
-    },
+          "arguments": ["--stdin"]
+        }
+      }
+    }
   },
   "lsp": {
-    "kotlin-lsp": {},
+    "kotlin-lsp": {}
   },
   "agent": {
     "default_profile": "minimal",
     "default_model": {
       "provider": "openrouter",
-      "model": "openrouter/owl-alpha",
-    },
+      "model": "openrouter/owl-alpha"
+    }
   },
   "language_models": {
     "open_router": {
-      "available_models": [],
-    },
+      "available_models": []
+    }
   },
   "icon_theme": {
     "mode": "system",
     "light": "Colored Zed Icons Theme Dark",
-    "dark": "Colored Zed Icons Theme Light",
+    "dark": "Colored Zed Icons Theme Light"
   },
   "theme": {
     "mode": "system",
     "light": "Flexoki Light",
-    "dark": "Flexoki Dark",
+    "dark": "Flexoki Dark"
   },
   // https://zed.dev/docs/reference/all-settings#auto-install-extensions
   "auto_install_extensions": {
@@ -126,16 +126,17 @@
     "flexoki-themes": true,
     "html": true,
     "git-firefly": true,
-    "pylsp": false,
     "codebook": true,
     "make": true,
     "toml": true,
     "xml": true,
     "sql": true,
+    "dockerfile": true,
     "log": true,
     "nix": true,
     "kotlin": false,
     "latex": false,
+    "pylsp": false
   },
-  "proxy": "http://localhost:1080",
+  "proxy": "http://localhost:1080"
 }
