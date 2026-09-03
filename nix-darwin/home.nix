@@ -352,7 +352,7 @@ in
   };
 
   fonts.fontconfig = {
-    enable = true;
+    enable = false;
     defaultFonts = {
       monospace = [ "FiraCode Nerd Font" ];
     };
