@@ -119,8 +119,9 @@
               ### Hardware
               "segger-jlink"
               ### Modeling
-              "freecad"
+              "autodesk-fusion"
               "kicad"
+              "freecad"
               "bambu-studio"
             ];
             masApps = {
