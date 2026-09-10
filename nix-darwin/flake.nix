@@ -116,6 +116,7 @@
               "localsend"
               "windows-app"
               "linearmouse"
+              "imaging-edge"
               ### Hardware
               "segger-jlink"
               ### Modeling
