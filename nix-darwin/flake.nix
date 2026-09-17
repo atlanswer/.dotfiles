@@ -81,6 +81,7 @@
               "lua-language-server"
               ### AI
               "llama.cpp"
+              "anomalyco/tap/opencode-v2"
               ### Mobile
               "watchman"
               "fastlane"

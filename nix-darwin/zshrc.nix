@@ -78,9 +78,6 @@ let
 
     # Use proxy by default
     setproxy
-
-    # Aliases
-    alias opencode=opencode2
   '';
 in
 lib.mkMerge [
