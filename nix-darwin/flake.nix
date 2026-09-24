@@ -107,10 +107,10 @@
               # "android-studio"
               "sf-symbols"
               "opencode-desktop"
-              "t3-code@nightly"
+              "t3-code"
               "codex"
               "chatgpt"
-              # "steam"
+              "tidal"
               ### Tools
               "skim"
               "moonlight"
@@ -118,6 +118,7 @@
               "windows-app"
               "linearmouse"
               "imaging-edge"
+              "jlcone"
               ### Hardware
               "segger-jlink"
               ### Modeling
