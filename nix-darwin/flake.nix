@@ -275,7 +275,7 @@
           #     colmena;
           # }) ];
           # nix.package = pkgs.lix;
-          nix.package = pkgs.lixPackageSets.stable.lix;
+          # nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;
