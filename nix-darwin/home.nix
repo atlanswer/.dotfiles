@@ -33,24 +33,23 @@ in
 
   home.packages = with pkgs; [
     androidSdk
-    nodejs_latest
+    # nodejs_latest
     zvm
     # odin
-    go
+    # go
     ### Rust
-    rustc
-    cargo-cache
-    cargo-update
+    # rustc
+    # cargo-cache
+    # cargo-update
     ### Toolchain
-    gcc-arm-embedded
+    # gcc-arm-embedded
     # gcc-arm-embedded-13
     clang-tools
-    cmake
-    ninja
-    bear
-    ccache
+    # cmake
+    # ninja
+    # ccache
     ### AI
-    pi-coding-agent
+    # pi-coding-agent
     # llama-cpp
     ### Dev tools
     stylua
@@ -71,7 +70,7 @@ in
     age
     ssh-to-age
     ### Others
-    (mpv.override { youtubeSupport = false; })
+    # (mpv.override { youtubeSupport = false; })
     typst
     ### Core utils
     curl

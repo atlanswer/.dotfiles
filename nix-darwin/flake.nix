@@ -11,10 +11,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    paneru = {
-      url = "github:karinushka/paneru";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # paneru = {
+    #   url = "github:karinushka/paneru";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
@@ -50,7 +50,7 @@
         in
         {
           imports = [
-            inputs.paneru.darwinModules.paneru
+            # inputs.paneru.darwinModules.paneru
           ];
           # List packages installed in system profile
           # To search by name, run: $ nix-env -qaP | grep wget
@@ -71,23 +71,33 @@
             enableZshIntegration = true;
             brews = [
               ### Dev
-              # "node" # homebrew version doesn't support Temporal: https://github.com/Homebrew/homebrew-core/pull/281707
+              "node" # homebrew version doesn't support Temporal: https://github.com/Homebrew/homebrew-core/pull/281707
               "pnpm"
               "bun"
+              "go"
               "odin"
+              "rust"
+              "cargo-cache"
+              "cargo-update"
+              ### Toolchain
+              "ninja"
+              "ccache"
+              "cmake"
               # "mise"
               # "vite-plus"
               "tree-sitter-cli"
               "lua-language-server"
+              "bear"
               ### AI
               "llama.cpp"
-              "anomalyco/tap/opencode-v2"
+              "opencode"
               ### Mobile
               "watchman"
               "fastlane"
               ### iOS
               "cocoapods"
               ### Cli
+              "mpv"
               "iproute2mac"
               ### Proxy
               {
@@ -111,6 +121,8 @@
               "codex"
               "chatgpt"
               "tidal"
+              ### Toolchains
+              "gcc-arm-embedded"
               ### Tools
               "skim"
               "moonlight"
@@ -118,7 +130,7 @@
               "windows-app"
               "linearmouse"
               "imaging-edge"
-              "jlcone"
+              # "jlcone"
               ### Hardware
               "segger-jlink"
               ### Modeling
@@ -191,61 +203,7 @@
             '';
           };
 
-          services.paneru = {
-            enable = true;
-            settings = {
-              options = {
-                focus_follows_mouse = true;
-                mouse_follows_focus = false;
-                animation_speed = 50;
-                virtual_workspace_animations = true;
-                preset_column_widths = [
-                  0.5
-                  0.666
-                ];
-                insert_windows_mid_strip = true;
-                create_virtual_workspace_automatically = true;
-              };
-              swipe = {
-                sensitivity = 0.40;
-                deceleration = 5.0;
-                continuous = true;
-                gesture = {
-                  fingers_count = 3;
-                };
-              };
-              bindings = {
-                window_focus_west = "rcmd - h";
-                window_swap_west = "rcmd + shift - h";
-                window_focus_east = "rcmd - l";
-                window_swap_east = "rcmd + shift - l";
-                window_stack = "rcmd + alt - h";
-                window_unstack = "rcmd + alt - l";
-                window_manage = "rcmd - v";
-                window_center = "rcmd - c";
-                window_resize = "rcmd - r";
-                window_fullwidth = "rcmd - f";
-                window_raise_floating = "rcmd + shift - f";
-
-                window_virtual_north = "rcmd - k";
-                window_virtual_south = "rcmd - j";
-                window_virtualmove_north = "rcmd + shift - k";
-                window_virtualmove_south = "rcmd + shift - j";
-                window_virtualnum_1 = "rcmd - 1";
-                window_virtualnum_2 = "rcmd - 2";
-                window_virtualnum_3 = "rcmd - 3";
-                window_virtualmovenum_1 = "rcmd + alt - 1";
-                window_virtualmovenum_2 = "rcmd + alt - 2";
-                window_virtualmovenum_3 = "rcmd + alt - 3";
-                window_virtualsendnum_1 = "rcmd + shift - 1";
-                window_virtualsendnum_2 = "rcmd + shift - 2";
-                window_virtualsendnum_3 = "rcmd + shift - 3";
-
-                quit = "rcmd + shift - m";
-                restart = "rcmd + alt - m";
-              };
-            };
-          };
+          # services.paneru.enable = false;
 
           networking.hostName = "bad-apple";
           networking.computerName = "Bad Apple";
@@ -275,7 +233,7 @@
           #     colmena;
           # }) ];
           # nix.package = pkgs.lix;
-          # nix.package = pkgs.lixPackageSets.stable.lix;
+          nix.package = pkgs.lixPackageSets.stable.lix;
           nix.settings.experimental-features = "nix-command flakes";
           nix.channel.enable = false;
           nix.optimise.automatic = true;
@@ -301,6 +259,7 @@
             enableKeyMapping = true;
             remapCapsLockToEscape = true;
           };
+          system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
           # Set Git commit hash for darwin-version
           system.configurationRevision = self.rev or self.dirtyRev or null;
           # Used for backwards compatibility, please read the changelog before changing
