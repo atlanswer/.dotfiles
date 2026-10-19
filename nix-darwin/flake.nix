@@ -255,10 +255,10 @@
             };
           };
           system.primaryUser = username;
-          system.keyboard = {
-            enableKeyMapping = true;
-            remapCapsLockToEscape = true;
-          };
+          # system.keyboard = {
+          #   enableKeyMapping = true;
+          #   remapCapsLockToEscape = true;
+          # };
           system.defaults.NSGlobalDomain.NSWindowShouldDragOnGesture = true;
           # Set Git commit hash for darwin-version
           system.configurationRevision = self.rev or self.dirtyRev or null;

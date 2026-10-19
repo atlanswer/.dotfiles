@@ -342,13 +342,13 @@ in
     enable = true;
   };
 
-  services.skhd = {
-    enable = true;
-    config = ''
-      # Launch Ghostty
-      rcmd - return : open "$HOME/Applications/Home Manager Apps/Ghostty.app"
-    '';
-  };
+  # services.skhd = {
+  #   enable = true;
+  #   config = ''
+  #     # Launch Ghostty
+  #     rcmd - return : open "$HOME/Applications/Home Manager Apps/Ghostty.app"
+  #   '';
+  # };
 
   fonts.fontconfig = {
     enable = false;
