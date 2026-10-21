@@ -243,37 +243,10 @@ in
       enable = false;
     };
     t3code = {
-      enable = true;
+      enable = false;
       package = null;
-      clientSettings = {
-        autoOpenPlanSidebar = true;
-        sidebarV2Enabled = true;
-        wordWrap = true;
-        diffIgnoreWhitespace = true;
-        favorites = [
-          {
-            provider = "codex";
-            model = "gpt-5.6-sol";
-          }
-          {
-            provider = "codex";
-            model = "gpt-5.6-terra";
-          }
-          {
-            provider = "codex";
-            model = "gpt-5.6-luna";
-          }
-          {
-            provider = "codex";
-            model = "gpt-5.3-codex-spark";
-          }
-        ];
-      };
-      userSettings = {
-        enableAssistantStreaming = true;
-        enableProviderUpdateChecks = false;
-        addProjectBaseDirectory = "~/Documents/";
-      };
+      clientSettings = { };
+      userSettings = { };
       keybindings = [ ];
     };
     java = {

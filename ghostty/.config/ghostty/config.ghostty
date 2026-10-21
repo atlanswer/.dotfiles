@@ -3,6 +3,7 @@ background-opacity = 0
 background-blur = macos-glass-regular
 theme = dark:Flexoki Dark, light:Flexoki Light
 font-family = FiraCode Nerd Font
+font-family = Lantinghei SC
 adjust-cursor-thickness = 200%
 
 shell-integration-features = sudo,ssh-terminfo,ssh-env
